@@ -1,0 +1,23 @@
+.NavBar {
+  background-color: white;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 20;
+}
+
+.NavBar nav {
+  display: flex;
+  gap: 20px;
+}
+
+.NavBar a {
+  text-transform: uppercase;
+}
+
+.NavBar h1{
+  font-size: 24px;
+}
