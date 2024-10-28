@@ -1,9 +1,15 @@
 import styles from "./Button.module.css";
 
-const Button = () => {
+interface ButtonProps {
+    buttontext: string;
+    buttonlink: string;
+}
+
+const Button :React.FC<ButtonProps> = ({buttontext, buttonlink}) => {
     return(
     <div className={styles.Button}>
-        <a href="#paket">Lihat Paket Wisata</a>
+        <div className={styles.buttonHover}><a href={buttonlink}>{buttontext}</a></div>
+        
     </div>
     );
 };

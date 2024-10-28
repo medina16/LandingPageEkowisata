@@ -1,0 +1,28 @@
+.MedSos{
+    width:40px;
+    position:fixed;
+    right:20px;
+    bottom: 20px;
+    z-index: 19;
+}
+
+.MedSos .sosmed{
+    background-color: #72BF82;
+    padding: 12px 23px;
+    justify-content: center;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 24px;
+    display: flex;
+    width: 100%;
+    margin: 5px 20px 0 0;
+    color: #F9F9F2;
+    /* line-height: 3px; */
+    align-items: center;
+}
+
+.MedSos .sosmed:hover{
+    background-color: #354C3F;
+    transition: 0.5s;
+}

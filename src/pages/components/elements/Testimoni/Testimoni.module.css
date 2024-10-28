@@ -1,6 +1,87 @@
-.Testimoni{
-    border: 1px solid black;
-    height:190px;
-    width:360px;
-    padding:15px;
+.Testimoni {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    min-height: 190px;
+    margin: 0px;
+}
+
+.groupTesti {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.itemTesti {
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    margin: 0 5px;
+    min-height: 190px;
+    background: #F9F9F2;
+
+    width: calc(100%/3);
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testiwrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.bigTestiWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slidedot {
+    all: unset;
+    display: block;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    transition: scale 100ms ease-in-out;
+}
+
+.slidedot>* {
+    height: 70%;
+    width: 70%;
+}
+
+.slidedot:hover {
+    scale: 1.2;
+}
+
+@keyframes squish {
+    50% {
+        scale: 1.4 0.6;
+    }
+}
+
+.slideDot {
+    display: none;
+}
+
+@media only screen and (max-width:720px) {
+    .itemTesti {
+        width: 100%;
+    }
+
+    .nextprevWrapper {
+        display: none
+    }
+
+    .bigTestiWrapper {
+        flex-direction: column;
+    }
+
+    .slideDot {
+        display: flex;
+        flex-direction: row;
+    }
+
 }

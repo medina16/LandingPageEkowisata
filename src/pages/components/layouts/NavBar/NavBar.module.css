@@ -1,23 +1,125 @@
 .NavBar {
-  background-color: white;
-  padding: 10px 30px;
+  background: linear-gradient(265.27deg, #0000 12%, #4BCEA6 94.17%);
+  background-color: #96c586;
+  height: 46px;
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   z-index: 20;
+  align-items: center;
+  padding: 0 150px 0 5%;
+  color:#f8f7ee;
+  /* border-bottom: 3px solid #dee9db; */
+}
+
+.NavBar a{
+  color:#ffffff;
 }
 
 .NavBar nav {
   display: flex;
-  gap: 20px;
+  gap: 10%;
 }
 
 .NavBar a {
   text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 14px;
 }
 
-.NavBar h1{
+.NavBar h1 {
   font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.navicon {
+  display: none;
+}
+
+.navlinklist {
+  display: none;
+}
+
+@media only screen and (max-width:762px) {
+  .NavBar{
+    padding: 0px 20px;
+  }
+  .navicon {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .navlink {
+    display: none;
+  }
+
+  .NavBar h1 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .NavBar {
+    padding: 0 30px;
+  }
+
+  .navlinklist {
+    display: block;
+    z-index: 301;
+  }
+
+  .NavBar nav {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .NavBar a {
+    font-size: 20px;
+    color:#354C3F;
+    padding: 15px 20px;
+    width:90%;
+  }
+
+  .navlinkContainer{
+    border-top: 3px solid #cbdbc6;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+  }
+
+  .navlinkContainer:hover{
+    background-color: rgb(193, 211, 190);
+  }
+
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 300;
+    background: #f8f7ee;
+    margin-top: 46px;
+  }
+
+  .overlay button{
+    all: unset;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 5px 7px;
+    cursor: pointer;
+  }
+
+
 }

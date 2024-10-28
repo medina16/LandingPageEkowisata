@@ -5,18 +5,33 @@
 }
 
 .herotext{
-    z-index:4;
-    position:absolute;
+    z-index: 4;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    gap:10px;
-    width:100%;
-    margin: 60px 300px;
-    color:white;
+    gap: 10px;
+    margin: auto;
+    color: #F9F9F2;
+    letter-spacing: 1px;
+    /* min-width: 360px; */
+    align-items: flex-start;
+    height: 100%;
+    inset: 0;
+    align-content: center;
+    justify-content: center;
+    max-width: 1120px;
+    padding: 30px;
 }
 
 .Slide h2{
     font-size: 40px;
+    font-weight: 800;
+    line-height: 36px;
+}
+
+.Slide h3{
+    font-weight: 600;
+    line-height: 18px;
 }
 
 .imgslides{
@@ -53,8 +68,8 @@
 }
 
 .slidebutton > *{
-    stroke: white;
-    fill: black;
+    stroke: #F9F9F2;
+    fill: #F9F9F2;
     width: 2rem;
     height: 2rem;
 }
@@ -98,5 +113,15 @@
 @keyframes squish{
     50%{
         scale: 1.4 0.6;
+    }
+}
+
+@media only screen and (max-width:490px){
+    .herotext h2{
+        font-size: 35px;
+    }
+    .herotext{
+        text-align: center;
+        align-items: center;
     }
 }

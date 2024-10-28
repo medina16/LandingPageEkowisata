@@ -1,13 +1,29 @@
-.Button a{
-    background-color: #4FC6A3;
-    width:300px;
+.Button a {
+    /* background: rgb(75,206,166); */
+    background: linear-gradient(265.27deg, #0000 12%, #4BCEA6 94.17%);  
+    background-color:#A9DD97;
+    width:100%;
     padding:15px 10px;
     display:flex;
     justify-content: center;
     border-radius: 30px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color:#F9F9F2;
+    font-size:19px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
 }
 
 .Button a:hover{
-    background-color: #26293e;
-    transition: 0.5s;
+    background-color: #cbc36e;
+}
+
+@media only screen and (max-width:840px){
+    .Button a{
+        width:100%;
+    }
+    .Button{
+        width:100%;
+    }
 }
