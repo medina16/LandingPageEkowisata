@@ -1,22 +1,39 @@
 import Image from "next/image";
 import styles from "./Info.module.css";
 
-const Info = () => {
+const Info = ({infos}:{infos:InfoWisata[]}) => {
   return (
     <div className={styles.Info}>
-      <div className={styles.wrapper}>
+      {infos?.map((item, index) => (
+        <div key={index} className={styles.wrapper}>
         <div className={styles.innerWrapper}>
-          <h3>Susur Hutan</h3>
+          <h3>{item.fields.nama}</h3>
           <p>
-            Telusuri indahnya wilayah kaki Gunung Slamet menggunakan mobil jeep.
-            Anda juga berkesempatan untuk turut serta dalam penanaman bibit
-            pohon seperti alpukat, kopi, durian, dan sebagainya dalam rangka
-            menekan jejak karbon.
+            {item.fields.deskripsi}
           </p>
+        </div>
+        <Image
+          src={"http:" + item.fields.foto.fields.file.url}
+          width={560}
+          height={270}
+          className={styles.img}
+          alt=""
+        />
+      </div>
+      ))|| <div>lah</div>}
+      {/* <div className={styles.wrapper}>
+        <div className={styles.innerWrapper}>
+          <h3>Bale Gandrung</h3>
           <p>
-            Dengan konsep agroeduwisata, Anda bisa merasakan suasana hutan yang
-            asri sambil mendapat edukasi langsung dari kelompok tani lokal
-            mengenai kelestarian alam dan emisi karbon.
+            Dengan luas area yang mencakup hutan dan pemandangan megah
+            Gunung Slamet, Bale Gandrung menawarkan pengalaman berwisata alam
+            yang autentik. Terdapat camping ground, area hortikultura, kebun
+            kopi, serta Bale Utama sebagai pusat aktivitas. Terdapat juga
+            saung-saung untuk bersantai, guest house untuk menginap, serta area
+            multifungsi yang ideal untuk berbagai acara. Nikmati keindahan alam
+            yang menyegarkan dan pengalaman budaya yang khas di Bale
+            Gandrung—tempat di mana keindahan Gunung Slamet berpadu harmonis
+            dengan kearifan lokal.
           </p>
         </div>
         <Image
@@ -26,18 +43,26 @@ const Info = () => {
           className={styles.img}
           alt=""
         />
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={styles.wrapper}
         style={{ display: "flex", flexDirection: "row-reverse" }}
       >
         <div className={styles.innerWrapper}>
-          <h3>Wanawisata di Bale Gandrung</h3>
+          <h3>Tatamba</h3>
           <p>
-            Rest area di ??? ini cocok bagi Anda yang ingin melepas penat sambil
-            dimanjakan pemandangan pepohonan rindang. Ada banyak aktivitas
-            menyenangkan yang dapat dilakukan, mulai dari games, api unggun,
-            hingga camping.
+            Nikmati sensasi menyusuri jalur pendakian Gunung Slamet menggunakan
+            jeep, melintasi hutan rindang, sungai alami, dan kawasan pertanian
+            di tengah alam. Tatamba
+            menjadi destinasi wisata tani rimba yang menggabungkan petualangan
+            dan edukasi, di mana pengunjung dapat mengenal lebih dekat kekayaan
+            hutan dan sentra sayuran yang terawat di kawasan ini.
+          </p>
+          <p>
+             Mulailah petualangan Anda dari gapura masuk yang
+            mempesona, lalu temukan sensasi berkeliling hutan dengan jeep
+            melalui jalur yang asri dan alami. Nantikan pengalaman wisata alam
+            yang tak terlupakan!.
           </p>
         </div>
         <Image
@@ -47,9 +72,78 @@ const Info = () => {
           height={270}
           className={styles.img}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default Info;
+
+interface ContentfulLink {
+  sys: {
+    type: "Link";
+    linkType: string;
+    id: string;
+  };
+}
+
+interface ContentfulAssetFile {
+  url: string;
+  details: {
+    size: number;
+    image: {
+      width: number;
+      height: number;
+    };
+  };
+  fileName: string;
+  contentType: string;
+}
+
+interface ContentfulAsset {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Asset";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    locale: string;
+  };
+  fields: {
+    title: string;
+    file: ContentfulAssetFile;
+  };
+}
+
+interface InfoWisataFields {
+  nama: string;
+  deskripsi: string;
+  foto: ContentfulAsset;
+}
+
+interface InfoWisata {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Entry";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    contentType: ContentfulLink;
+    locale: string;
+  };
+  fields: InfoWisataFields;
+}

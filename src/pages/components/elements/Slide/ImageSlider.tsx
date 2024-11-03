@@ -4,12 +4,16 @@ import styles from "./Slide.module.css";
 import Button from "../Button/Button";
 import Image from "next/image";
 
-type ImageSliderProps = {
-  imageUrls: string[];
-};
 
-export function ImageSlider({ imageUrls }: ImageSliderProps) {
+export default function ImageSlider() {
   const [imageIndex, setImageIndex] = useState(0);
+  const imageUrls = [
+    "/DJI_0811.JPG",
+    "/DSC05718.JPG",
+    "/DSC05734.JPG",
+    "/DSC05762 (1).JPG",
+    "/DJI_0822.JPG",
+  ];
 
   function showNextImage() {
     setImageIndex((index) => {
@@ -54,7 +58,7 @@ export function ImageSlider({ imageUrls }: ImageSliderProps) {
           </div>
           <h2>Nikmati Pesona Kearifan Lokal</h2>
           <h3>Kasih tulisan keren apa gitu di sini.</h3>
-          <div style={{width:"300px"}}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket"/></div>
+          <div style={{width:"300px"}}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket" buttontype="primary"/></div>
           
         </div>
         <div

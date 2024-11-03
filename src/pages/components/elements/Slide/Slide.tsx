@@ -1,20 +1,14 @@
 //import Image from "next/image";
 
 import styles from "./Slide.module.css";
-import { ImageSlider } from "./ImageSlider";
+import  ImageSlider  from "./ImageSlider";
 
 // const imgStyle = {
 //   width: '100%',
 //   height: 'auto',
 // };
 
-const IMAGES = [
-  "/DJI_0811.JPG",
-  "/DSC05718.JPG",
-  "/DSC05734.JPG",
-  "/DSC05762 (1).JPG",
-  "/DJI_0822.JPG",
-];
+
 
 const Slide = () => {
   return (
@@ -27,29 +21,10 @@ const Slide = () => {
           margin: "0 auto",
         }}
       >
-        <ImageSlider imageUrls={IMAGES} />
+        <ImageSlider />
       </div>
     </div>
   );
 };
 
 export default Slide;
-
-{
-  /* <Image
-          alt=""
-          src="/DSC05718.JPG"
-          width={0}
-          height={0}
-          unoptimized={true}
-          style={imgStyle}
-        />
-        <Image
-          alt=""
-          src="/DSC05734.JPG"
-          width={0}
-          height={0}
-          unoptimized={true}
-          style={imgStyle}
-        /> */
-}

@@ -1,125 +1,341 @@
 import styles from "./Paket.module.css";
-import { Check } from "lucide-react";
 import Image from "next/image";
 import Button from "../../elements/Button/Button";
+import { Leaf, X } from "lucide-react";
+import { useState } from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-const Paket = () => {
+const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  const [selectedPaketID, openPaket] = useState("");
+
+  const paketModal = (id: string) => {
+    toggleModal();
+    openPaket(id);
+  };
+
+  function getSelectedPaket(paketList: PaketWisata[]) {
+    return (
+      paketList.find(
+        (paket: PaketWisata) => paket.sys.id === selectedPaketID
+      ) || notFound
+    );
+  }
+
   return (
     <div className={styles.Paket}>
       <div className={styles.paketWrapper}>
-        <div className={styles.paketContainer}>
-          <Image
-            src="/DSC05762 (1).JPG"
-            width={560}
-            height={270}
-            className={styles.img}
-            alt=""
-          />
+        {modal && (
+          <div className={styles.modal}>
+            <div className={styles.overlay} onClick={toggleModal}></div>
+            <div className={styles.modalContent}>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={
+                    "https:" +
+                    getSelectedPaket(pakets).fields.fotoPaket.fields.file.url
+                  } // Use the selected image
+                  height={720}
+                  width={1280}
+                  alt=""
+                  className={styles.modalContentImg}
+                />
+              </div>
 
-          <div className={styles.paketContent}>
-            <h2>Guci Nature n Wellness</h2>
-            <p>
-              Paket ini menekankan keseimbangan antara petualangan dan
-              relaksasi. Cocok bagi wisatawan yang mencari pengalaman
-              menyegarkan dan menenangkan di alam, ideal untuk keluarga atau
-              grup yang ingin merasakan healing dengan wisata alam.
-            </p>
-            <ul>
-              <li>Jeep adventure</li>
-              <li>Nanam bibit pohon</li>
-              <li>Makan siang</li>
-              <li>Relaksasi air panas</li>
-              <li>Makan sore</li>
-              <li>Agrowisata kebun kopi</li>
-              <li>Shopping oleh-oleh</li>
-            </ul>
-          </div>
-          <div style={{ padding: "0 15px 15px" }}><Button
-            buttontext="Reservasi Sekarang"
-            buttonlink="http://web.whatsapp.com"
-          />
-        </div>
-        </div>
-        <div className={styles.paketContainer}>
-          <Image
-            src="/DSC05734.JPG"
-            width={560}
-            height={270}
-            className={styles.img}
-            alt=""
-          />
+              <div
+                style={{
+                  padding: "  10px 20px",
+                  maxHeight: "36vh",
+                  overflowY: "scroll",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
+                <h4 style={{ fontSize: "23px" }}>
+                  {getSelectedPaket(pakets).fields.namaPaket}
+                </h4>
+                {/* <p>{getSelectedPaket(pakets)?.fields.daftarFasilitas}</p> */}
+                <div className={styles.aktiFasilWrapper}>
+                  <div className={styles.aktivitasList}>
+                    <b>Aktivitas:</b>
+                    <div style={{ 
+                      display:"flex",
+                      flexDirection: "column",
+                       gap: "4px"
+                     }}>
+                      {getSelectedPaket(pakets)?.fields.daftarAktivitas?.map(
+                        (aktivitas: string, index: number) => (
+                          <div 
+                          style={{ 
+                            marginLeft:"15px",
+                            display: "flex",
+                            gap: "7px",
+                            alignItems: "baseline",
+                            lineHeight: "normal",
+                           }}
+                          key={index}
+                          ><svg style={{ width: "17px" }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#72BF82" stroke="#72BF82" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg> {aktivitas}</div>
+                        )
+                      ) || <div></div>}
+                    </div>
+                  </div>
+                  <div className={styles.fasilitasList}>
+                    <b>Fasilitas sudah mencakup:</b>
 
-          <div className={styles.paketContent}>
-            <h2>Guci Nature n Wellness</h2>
-            <p>
-              Paket ini menekankan keseimbangan antara petualangan dan
-              relaksasi. Cocok bagi wisatawan yang mencari pengalaman
-              menyegarkan dan menenangkan di alam, ideal untuk keluarga atau
-              grup yang ingin merasakan healing dengan wisata alam.
-            </p>
-            <ul>
-              <li>Jeep adventure</li>
-              <li>Nanam bibit pohon</li>
-              <li>Makan siang</li>
-              <li>Relaksasi air panas</li>
-              <li>Makan sore</li>
-              <li>Agrowisata kebun kopi</li>
-              <li>Shopping oleh-oleh</li>
-            </ul>
+                    <div className={styles.fasilitasWrapper}>
+                      {getSelectedPaket(pakets)?.fields.daftarFasilitas?.map(
+                        (fasilitas: string, index: number) => (
+                          <div className={styles.fasilitasLabel} key={index}>
+                            {fasilitas}
+                          </div>
+                        )
+                      ) || <div></div>}
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ 
+                  display:"flex",
+                  flexDirection:"column",
+                  gap:"5px"
+                 }}>
+                  {documentToReactComponents(getSelectedPaket(pakets)?.fields.deskripsiPanjang)}
+                </div>
+              </div>
+              <div style={{ 
+                padding: "  10px 20px" ,
+                display: "flex",
+                gap: "6px",
+                flexDirection: "column"
+                }}>
+                <Button
+                  buttonlink={getSelectedPaket(pakets).fields.linkReservasiWa}
+                  buttontype="primary"
+                  buttontext="Reservasi Sekarang"
+                />
+                <Button
+                  buttontype="secondary"
+                  buttonlink=""
+                  buttontext="Kunjungi Instagram"
+                />
+              </div>
+              <button className={styles.closeModal} onClick={toggleModal}>
+                <X />
+              </button>
+            </div>
           </div>
-          <div style={{ padding: "0 15px 15px" }}>
-            <Button
-              buttontext="Reservasi Sekarang"
-              buttonlink="http://web.whatsapp.com"
-            />
+        )}
+
+        {pakets.map((item: PaketWisata, index: number) => (
+          <div key={index} className={styles.paketContainer}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={"https:" + item.fields.fotoPaket.fields.file.url}
+                width={1080}
+                height={720}
+                className={styles.img}
+                alt=""
+              />
+            </div>
+            <div style={{ 
+              display: "flex",
+              flexDirection: "column",
+              height: "-webkit-fill-available",
+              justifyContent: "space-between"
+             }}>
+            <div className={styles.paketContent}>
+              <h2 style={{ display:"flex", gap: "8px"}}>
+                <div style={{display: "flex"}} className={styles.paketIcon}><Leaf /></div>
+                 {item.fields.namaPaket}
+              </h2>
+              <p>{item.fields.deskripsiSingkat}</p>
+            </div>
+            <div
+            className={styles.buttonWrapper}
+                  onClick={() => paketModal(item.sys.id)}
+                >
+                  <Button
+                    buttontext="Lihat Detail"
+                    buttonlink=""
+                    buttontype="primary"
+                  />
+                </div>
+            </div>
+            
           </div>
-        </div>
-      </div>
-      <h3>Fasilitas sudah termasuk:</h3>
-      <div className={styles.fasilWrapper}>
-        <div className={styles.fasilGroup}>
-          <div className={styles.fasilitas}>
-            <span>
-              <img src="/starburst.svg"></img>
-            </span>
-            Sewa peralatan camping
-          </div>
-          <div className={styles.fasilitas}>
-            <span>
-              <img src="/starburst.svg"></img>
-            </span>
-            Sewa peralatan camping
-          </div>
-          <div className={styles.fasilitas}>
-            <span>
-              <img src="/starburst.svg"></img>
-            </span>
-            Sewa peralatan camping
-          </div>
-        </div>
-        <div className={styles.fasilGroup}>
-          <div className={styles.fasilitas}>
-            <span>
-              <img src="/starburst.svg"></img>
-            </span>
-            Sewa peralatan camping
-          </div>
-          <div className={styles.fasilitas}>
-            <span>
-              <img src="/starburst.svg"></img>
-            </span>
-            Sewa peralatan camping
-          </div>
-          <div className={styles.fasilitas}>
-            <span>
-              <img src="/starburst.svg"></img>
-            </span>
-            Sewa peralatan camping
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
 export default Paket;
+
+interface ContentfulLink {
+  sys: {
+    type: "Link";
+    linkType: string;
+    id: string;
+  };
+}
+
+interface ContentfulAssetFile {
+  url: string;
+  details: {
+    size: number;
+    image: {
+      width: number;
+      height: number;
+    };
+  };
+  fileName: string;
+  contentType: string;
+}
+
+interface ContentfulAsset {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Asset";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    locale: string;
+  };
+  fields: {
+    title: string;
+    file: ContentfulAssetFile;
+  };
+}
+
+interface PaketWisataFields {
+  namaPaket: string;
+  deskripsiPaket: string;
+  daftarFasilitas: string[];
+  linkReservasiWa: string;
+  fotoPaket: ContentfulAsset;
+  aktivitas: string;
+  deskripsiSingkat: string;
+  daftarAktivitas: string[];
+}
+
+interface PaketWisata {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Entry";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    contentType: ContentfulLink;
+    locale: string;
+  };
+  fields: PaketWisataFields;
+}
+
+const notFound: PaketWisata = {
+  metadata: {
+    tags: [],
+    concepts: [],
+  },
+  fields: {
+    deskripsiSingkat: "",
+    fotoPaket: {
+      metadata: {
+        tags: [],
+        concepts: [],
+      },
+      sys: {
+        space: {
+          sys: {
+            type: "Link",
+            linkType: "",
+            id: "",
+          },
+        },
+        type: "Asset",
+        id: "",
+        createdAt: "",
+        updatedAt: "",
+        environment: {
+          sys: {
+            type: "Link",
+            linkType: "",
+            id: "",
+          },
+        },
+        publishedVersion: 0,
+        revision: 0,
+        locale: "",
+      },
+      fields: {
+        title: "",
+        file: {
+          url: "",
+          details: {
+            size: 0,
+            image: {
+              width: 0,
+              height: 0,
+            },
+          },
+          fileName: "",
+          contentType: "",
+        },
+      },
+    },
+    namaPaket: "",
+    deskripsiPaket: "",
+    daftarFasilitas: [],
+    linkReservasiWa: "",
+    aktivitas: "",
+    daftarAktivitas: [],
+  },
+  sys: {
+    space: {
+      sys: {
+        type: "Link",
+        linkType: "",
+        id: "",
+      },
+    },
+    id: "",
+    type: "Entry",
+    createdAt: "",
+    updatedAt: "",
+    environment: {
+      sys: {
+        type: "Link",
+        linkType: "",
+        id: "",
+      },
+    },
+    publishedVersion: 0,
+    revision: 0,
+    contentType: {
+      sys: {
+        type: "Link",
+        linkType: "",
+        id: "",
+      },
+    },
+    locale: "",
+  },
+};

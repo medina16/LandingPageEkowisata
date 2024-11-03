@@ -3,44 +3,36 @@ import NextPrev from "../NextPrevButton/NextPrev";
 import { useState, useEffect } from "react";
 import { Circle, CircleDot } from "lucide-react";
 
-const Testimoni = () => {
-  const data = [
-    { nama: "orang 1", testi: "Lorem ipsum..." },
-    { nama: "orang 2", testi: "Lorem ipsum..." },
-    { nama: "orang 3", testi: "Lorem ipsum..." },
-    { nama: "orang 4", testi: "Lorem ipsum..." },
-    { nama: "orang 5", testi: "Lorem ipsum..." },
-    { nama: "orang 6", testi: "Lorem ipsum..." },
-  ];
+const Testimoni = ({ testimonis }: { testimonis: Testimoni[] }) => {
+  const [groupedTesti, setGroupedTesti] = useState<Testimoni[][]>([]);
+  const [responsiveWidth, setResponsiveWidth] = useState(0);
+  const [slideIndex, setIndex] = useState(0);
 
-  const [tIndex, setTIndex] = useState(0);
-  const [groupedData, setGroupedData] = useState([]); // Hold the grouped data based on window size
-
-  // Helper function to group data based on window width
   const groupTestimonials = () => {
     const width = window.innerWidth;
-    const newGroupedData = [];
+    const newGroupedTesti = [];
 
     if (width > 720) {
       // Group by 3 when the window width is more than 500px
-      for (let i = 0; i < data.length; i += 3) {
-        newGroupedData.push(data.slice(i, i + 3));
+      for (let i = 0; i < testimonis.length; i += 3) {
+        newGroupedTesti.push(testimonis.slice(i, i + 3));
+        setIndex(0)
       }
     } else {
       // Group by 1 when the window width is less than or equal to 500px
-      for (let i = 0; i < data.length; i++) {
-        newGroupedData.push([data[i]]);
+      for (let i = 0; i < testimonis.length; i++) {
+        newGroupedTesti.push([testimonis[i]]);
+        setIndex(0)
       }
     }
 
-    setGroupedData(newGroupedData); // Update the grouped data state
+    setGroupedTesti(newGroupedTesti); // Update the grouped data state
+    setResponsiveWidth(width);
   };
 
   useEffect(() => {
-    // Call the grouping function initially
     groupTestimonials();
 
-    // Add resize event listener
     const handleResize = () => {
       groupTestimonials();
     };
@@ -49,48 +41,51 @@ const Testimoni = () => {
 
     // Cleanup event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
-  }, []); // No dependency array, only run on mount and unmount
+  }, [testimonis]); // Run grouping logic whenever testimonis changes
+
+  // Tombol Next/Previous untuk ganti index slide
 
   function showNext() {
-    setTIndex((index) => {
-      if (tIndex === groupedData.length - 1) return 0;
+    setIndex((index) => {
+      if (slideIndex === groupedTesti.length - 1) return 0;
       return index + 1;
     });
   }
-
   function showPrev() {
-    setTIndex((index) => {
-      if (tIndex === 0) return groupedData.length - 1;
+    setIndex((index) => {
+      if (slideIndex === 0) return groupedTesti.length - 1;
       return index - 1;
     });
   }
 
   return (
-    <div className={styles.bigTestiWrapper}
-    >
-      <div className={styles.nextprevWrapper}>
-        <button style={{ all: "unset" }} onClick={showPrev}>
-          <NextPrev direction={false} />
-        </button>
-      </div>
+    <div className={styles.bigTestiWrapper}>
+      {testimonis.length > 3 && (
+        <div className={styles.nextprevWrapper}>
+          <button style={{ all: "unset" }} onClick={showPrev}>
+            <NextPrev direction={false} />
+          </button>
+        </div>
+      )}
 
       <div className={styles.testiwrapper}>
         <div
           className={styles.Testimoni}
-          style={{
-            transition: "transform 300ms ease-in-out",
-            transform: `translateX(${-100 * tIndex}%)`,
-            display: "flex",
-            flexDirection: "row",
-          }}
+          style={responsiveWidth>720? {transform:`translateX(${(-100 / 3) * slideIndex}%)`} : {transform: `translateX(${(-100) * slideIndex}%)`}}
+
+          
         >
-          {groupedData.map((group, groupIndex) => (
+          {groupedTesti.map((group: Testimoni[], groupIndex: number) => (
             <div key={groupIndex} className={styles.groupTesti}>
-              {group.map((item, index) => (
-                <div key={index} className={styles.itemTesti}>
-                  <div>"{item.testi}"</div>
+              {group.map((item, index: number) => (
+                <div
+                  key={index}
+                  className={styles.itemTesti}
+                  style={responsiveWidth>720?{ width: "calc(100%/3)" }:{width:"100%"}}
+                >
+                  <div>&quot;{item.fields.isiTestimoni}&quot;</div>
                   <div style={{ textAlign: "right", color: "#72BF82" }}>
-                    <b>- {item.nama}</b>
+                    <b>- {item.fields.nama}</b>
                   </div>
                 </div>
               ))}
@@ -98,29 +93,66 @@ const Testimoni = () => {
           ))}
         </div>
       </div>
-      <div className={styles.slideDot}>
-        {data.map((_, index) => (
-          <button
-            key={index}
-            className={styles.slidedot}
-            onClick={() => setTIndex(index)}
-          >
-            {index === tIndex ? (
-              <CircleDot style={{ stroke: "#72BF82", fill: "#72BF82" }} />
-            ) : (
-              <Circle style={{ fill: "#B7DBC5", stroke:"#B7DBC5" }} />
-            )}
-          </button>
-        ))}
-      </div>
 
-      <div className={styles.nextprevWrapper}>
-        <button style={{ all: "unset" }} onClick={showNext}>
-          <NextPrev direction={true} />
-        </button>
-      </div>
+      {testimonis.length > 3 && (
+        <div className={styles.slideDot}>
+          {testimonis.map((_, index: number) => (
+            <button
+              key={index}
+              className={styles.slidedot}
+              onClick={() => setIndex(index)}
+            >
+              {index === slideIndex ? (
+                <CircleDot style={{ stroke: "#72BF82", fill: "#72BF82" }} />
+              ) : (
+                <Circle style={{ fill: "#B7DBC5", stroke: "#B7DBC5" }} />
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+      {testimonis.length > 3 && (
+        <div className={styles.nextprevWrapper}>
+          <button style={{ all: "unset" }} onClick={showNext}>
+            <NextPrev direction={true} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Testimoni;
+
+interface ContentfulLink {
+  sys: {
+    type: "Link";
+    linkType: string;
+    id: string;
+  };
+}
+
+interface TestimoniFields {
+  nama: string;
+  isiTestimoni: string;
+}
+
+interface Testimoni {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Entry";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    contentType: ContentfulLink;
+    locale: string;
+  };
+  fields: TestimoniFields;
+}

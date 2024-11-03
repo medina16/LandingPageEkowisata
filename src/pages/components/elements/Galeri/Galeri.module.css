@@ -4,7 +4,10 @@
     width:100%;
     max-height: 190px;
     border-radius: 10px;
+    
 }
+
+
 
 .Galeri {
     margin: 0px;
@@ -12,24 +15,25 @@
     flex-direction: row;
     min-height: 190px;
     margin: 0px;
+    transition: transform 300ms ease-in-out;
+    transform: translateX;
 }
 
 
 
 .groupTesti {
     display: flex;
-    width: 100%;
     margin: 0;
     flex-shrink: 0;
-    height: 410px;
+    max-height: 410px;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
 .itemTesti {
     transition: 0.2s ease-in-out;
-    width: calc(100% / 3 - 5px);
-    margin: 0 5px 5px 0;
+    width: 100%;
+    padding: 0 3px;
 }
 
 .itemTesti:hover {
@@ -74,7 +78,6 @@
     bottom: 0;
     margin: auto;
     max-width: 620px;
-    max-height: 480px;
     height: fit-content;
 }
 
@@ -91,6 +94,15 @@
     max-width: 100%;
     height: auto;
     border-radius: 20px 20px 0 0;
+    display: flex;
+
+}
+
+.imageContainer{
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+    background-color:#72BF82;
 }
 
 .slidedot{
@@ -118,14 +130,14 @@
 .bigTestiWrapper{
     width: 100%;
     display: flex;
+    gap: 5px;
     align-items: center;
-    gap: 15px;
 }
 
 @media only screen and (max-width:762px){
     .itemTesti {
         width: calc(100% / 2 - 5px);
-        margin: 0 5px 5px 0;
+
     }
     .modalContent{
         margin: auto 30px;
@@ -143,10 +155,10 @@
 }
 
 @media only screen and (max-width:680px){
-    .modalContentImg{
-        /* max-width:100%;
-        height:auto; */
-    }
+    /* .modalContentImg{
+        max-width:100%;
+        height:auto;
+    } */
 }
 
 

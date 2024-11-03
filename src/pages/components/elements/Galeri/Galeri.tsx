@@ -4,114 +4,42 @@ import NextPrev from "../NextPrevButton/NextPrev";
 import { useEffect, useState } from "react";
 import { Circle, CircleDot, X } from "lucide-react";
 
-const Galeri = () => {
-  const images = [
-    {
-      id: 1,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 2,
-      filename: "/DSC05718.JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 3,
-      filename: "/DSC05734.JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 4,
-      filename: "/DJI_0822.JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 5,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 6,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 7,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 8,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 9,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 10,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 11,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-    {
-      id: 12,
-      filename: "/DSC05762 (1).JPG",
-      judul: "aaaaa",
-      tanggal: "17 Agustus 1945",
-    },
-  ];
-
-  const [tIndex, setTIndex] = useState(0);
-  const [groupedImg, setGroupedData] = useState([]); // Hold the grouped data based on window size
+const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
+  const [groupedImg, setGroupedData] = useState<FotoGaleri[][]>([]);
+  const [responsiveWidth, setResponsiveWidth] = useState(0);
 
   // Helper function to group data based on window width
   const groupTestimonials = () => {
     const width = window.innerWidth;
-    const newGroupedData = [];
+    const slideGroup = [];
 
     if (width > 762) {
       // Group by 3 when the window width is more than 500px
-      for (let i = 0; i < images.length; i += 6) {
-        newGroupedData.push(images.slice(i, i + 6));
+      for (let i = 0; i < galeri.length; i += 2) {
+        slideGroup.push(galeri.slice(i, i + 2));
+        setIndex(0)
       }
     } else if (width > 540) {
-      for (let i = 0; i < images.length; i += 4) {
-        newGroupedData.push(images.slice(i, i + 4));
+      for (let i = 0; i < galeri.length; i += 4) {
+        slideGroup.push(galeri.slice(i, i + 4));
+        setIndex(0)
       }
     } else {
       // Group by 1 when the window width is less than or equal to 500px
-      for (let i = 0; i < images.length; i++) {
-        newGroupedData.push([images[i]]);
+      for (let i = 0; i < galeri.length; i++) {
+        slideGroup.push([galeri[i]]);
+        setIndex(0)
       }
     }
-
-    setGroupedData(newGroupedData); // Update the grouped data state
+    setGroupedData(slideGroup); // Update the grouped data state
+    setResponsiveWidth(width);
   };
 
   useEffect(() => {
     // Call the grouping function initially
     groupTestimonials();
 
-    // Add resize event listener
+    // Add resize event listener h
     const handleResize = () => {
       groupTestimonials();
     };
@@ -122,36 +50,43 @@ const Galeri = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // No dependency array, only run on mount and unmount
 
+
+  
+  // Tombol Next/Previous untuk ganti index slide
+  const [slideIndex, setIndex] = useState(0);
+  console.log(slideIndex)
+  console.log(groupedImg.length)
   function showNext() {
-    setTIndex((index) => {
-      if (tIndex === groupedImg.length - 1) return 0;
+    setIndex((index) => {
+      if (slideIndex === groupedImg.length-3) return 0;
       return index + 1;
     });
   }
-
   function showPrev() {
-    setTIndex((index) => {
-      if (tIndex === 0) return groupedImg.length - 1;
+    setIndex((index) => {
+      if (slideIndex === 0) return groupedImg.length - 3;
       return index - 1;
     });
   }
-
-  // const groupedData = [];
-  // for (let i = 0; i < images.length; i += 6) {
-  //   groupedData.push(images.slice(i, i + 6));
-  // }
 
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
   };
 
-  const [img_id, openImage] = useState(0);
+  const [selectedImageID, openImage] = useState("");
 
-  const imageModal = (id) => {
+  const imageModal = (id: string) => {
     toggleModal();
     openImage(id);
   };
+
+  function getSelectedImage(images: FotoGaleri[]) {
+    return (
+      images.find((foto: FotoGaleri) => foto.sys.id === selectedImageID) ||
+      notFound
+    );
+  }
 
   return (
     <div className={styles.bigTestiWrapper}>
@@ -164,26 +99,22 @@ const Galeri = () => {
       <div className={styles.wrapper}>
         <div
           className={styles.Galeri}
-          style={{
-            transition: "transform 300ms ease-in-out",
-            transform: `translateX(${-100 * tIndex}%)`,
-            display: "flex", // Flex to align groups horizontally
-          }}
+          style={responsiveWidth>762? {transform:`translateX(${(-100 / 3) * slideIndex}%)`} : {transform: `translateX(${(-100) * slideIndex}%)`}}
         >
-          {groupedImg.map((group, groupIndex) => (
-            <div key={groupIndex} className={styles.groupTesti}>
-              {group.map((item, index) => (
+          {groupedImg.map((group: FotoGaleri[], groupIndex: number) => (
+            <div key={groupIndex} className={styles.groupTesti} style={responsiveWidth>762?{ width: "calc(100%/3)" }:{width:"100%"}}>
+              {group.map((item: FotoGaleri, index: number) => (
                 <div
                   key={index}
                   className={styles.itemTesti}
-                  onClick={() => imageModal(item.id)}
+                  onClick={() => imageModal(item.sys.id)}
                   style={{ cursor: "pointer" }}
                 >
                   <Image
-                    src={item.filename}
-                    height={190}
-                    width={370}
-                    alt=""
+                    src={"http:" + item.fields.foto.fields.file.url}
+                    width={560}
+                    height={270}
+                    alt={item.fields.judul}
                     className={styles.img}
                   />
                 </div>
@@ -200,26 +131,28 @@ const Galeri = () => {
 
       {modal && (
         <div className={styles.modal}>
-          <div className={styles.overlay}>
-            <div className={styles.modalContent}>
-              <div className={styles.imgContainer}>
-                
-              </div>
-              <Image
-                src={images.find((image) => image.id === img_id).filename} // Use the selected image
-                height={720}
-                width={1280}
-                alt=""
-                className={styles.modalContentImg}
-              />
-              <div style={{ padding: "  0px 20px 10px 20px" }}>
-                <h4>{images.find((image) => image.id === img_id).judul}</h4>
-                <p>{images.find((image) => image.id === img_id).tanggal}</p>
-              </div>
-              <button className={styles.closeModal} onClick={toggleModal}>
-                <X />
-              </button>
-            </div>
+          <div className={styles.overlay} onClick={toggleModal}></div>
+          <div className={styles.modalContent}>
+          <div className={styles.imageContainer}>
+                <Image
+                  src={
+                    "http:" +
+                    getSelectedImage(galeri).fields.foto.fields.file.url
+                  } // Use the selected image
+                  height={720}
+                  width={1280}
+                  alt=""
+                  className={styles.modalContentImg}
+                />
+                </div>
+                <div style={{ padding: "15px 20px" }}>
+                  <h4>{getSelectedImage(galeri).fields.judul}</h4>
+                  <p>{getSelectedImage(galeri).fields.deskripsi}</p>
+                </div>
+
+            <button className={styles.closeModal} onClick={toggleModal}>
+              <X />
+            </button>
           </div>
         </div>
       )}
@@ -228,9 +161,9 @@ const Galeri = () => {
           <button
             key={index}
             className={styles.slidedot}
-            onClick={() => setTIndex(index)}
+            onClick={() => setIndex(index)}
           >
-            {index === tIndex ? (
+            {index === slideIndex ? (
               <CircleDot style={{ stroke: "#72BF82", fill: "#72BF82" }} />
             ) : (
               <Circle style={{ fill: "#B7DBC5", stroke: "#B7DBC5" }} />
@@ -243,3 +176,157 @@ const Galeri = () => {
 };
 
 export default Galeri;
+
+interface ContentfulLink {
+  sys: {
+    type: "Link";
+    linkType: string;
+    id: string;
+  };
+}
+
+interface ContentfulAssetFile {
+  url: string;
+  details: {
+    size: number;
+    image: {
+      width: number;
+      height: number;
+    };
+  };
+  fileName: string;
+  contentType: string;
+}
+
+interface ContentfulAsset {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Asset";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    locale: string;
+  };
+  fields: {
+    title: string;
+    file: ContentfulAssetFile;
+  };
+}
+
+interface FotoGaleriFields {
+  judul: string;
+  deskripsi: string;
+  foto: ContentfulAsset;
+}
+
+interface FotoGaleri {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Entry";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    contentType: ContentfulLink;
+    locale: string;
+  };
+  fields: FotoGaleriFields;
+}
+
+const notFound: FotoGaleri = {
+  metadata: {
+    tags: [],
+    concepts: [],
+  },
+  fields: {
+    foto: {
+      metadata: {
+        tags: [],
+        concepts: [],
+      },
+      sys: {
+        space: {
+          sys: {
+            type: "Link",
+            linkType: "",
+            id: "",
+          },
+        },
+        type: "Asset",
+        id: "",
+        createdAt: "",
+        updatedAt: "",
+        environment: {
+          sys: {
+            type: "Link",
+            linkType: "",
+            id: "",
+          },
+        },
+        publishedVersion: 0,
+        revision: 0,
+        locale: "",
+      },
+      fields: {
+        title: "",
+        file: {
+          url: "",
+          details: {
+            size: 0,
+            image: {
+              width: 0,
+              height: 0,
+            },
+          },
+          fileName: "",
+          contentType: "",
+        },
+      },
+    },
+    judul: "none",
+    deskripsi: "",
+  },
+  sys: {
+    space: {
+      sys: {
+        type: "Link",
+        linkType: "",
+        id: "",
+      },
+    },
+    id: "",
+    type: "Entry",
+    createdAt: "",
+    updatedAt: "",
+    environment: {
+      sys: {
+        type: "Link",
+        linkType: "",
+        id: "",
+      },
+    },
+    publishedVersion: 0,
+    revision: 0,
+    contentType: {
+      sys: {
+        type: "Link",
+        linkType: "",
+        id: "",
+      },
+    },
+    locale: "",
+  },
+};

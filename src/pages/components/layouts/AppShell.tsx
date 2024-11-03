@@ -1,5 +1,4 @@
 import NavBar from "./NavBar/NavBar";
-import Footer from "./Footer/Footer"
 import Slide from "../elements/Slide/Slide";
 import { useRouter } from "next/router";
 import { Rubik } from "next/font/google";
@@ -15,7 +14,7 @@ type AppShellProps = {
   children: React.ReactNode;
 };
 
-const disableNavHeaderFooterMedsos = ["/404"];
+const disableNavHeaderMedsos = ["/404"];
 
 const AppShell = (props: AppShellProps) => {
   const { children } = props;
@@ -23,24 +22,16 @@ const AppShell = (props: AppShellProps) => {
 
   return (
     <div className={rubik_init.variable}>
-      {!disableNavHeaderFooterMedsos.includes(pathname) && (
+      {!disableNavHeaderMedsos.includes(pathname) && (
         <div className="rubik">
           <NavBar /> &&
           <header>
             <Slide />
           </header>
-          <MedSos/>
+          <MedSos />
         </div>
       )}
-
-      
-
       <main>{children}</main>
-      {!disableNavHeaderFooterMedsos.includes(pathname) && (
-      <footer className="rubik">
-        <Footer />
-      </footer>
-      )}
     </div>
   );
 };

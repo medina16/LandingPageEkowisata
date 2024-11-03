@@ -1,6 +1,6 @@
 .NavBar {
   background: linear-gradient(265.27deg, #0000 12%, #4BCEA6 94.17%);
-  background-color: #96c586;
+  background-color: #A9DD97;
   height: 46px;
   display: flex;
   justify-content: space-between;
@@ -16,6 +16,11 @@
 
 .NavBar a{
   color:#ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+.NavBar a:hover{
+  scale:110%
 }
 
 .NavBar nav {
@@ -44,6 +49,11 @@
 }
 
 @media only screen and (max-width:762px) {
+
+  .NavBar a:hover{
+    scale:103%
+  }
+  
   .NavBar{
     padding: 0px 20px;
   }

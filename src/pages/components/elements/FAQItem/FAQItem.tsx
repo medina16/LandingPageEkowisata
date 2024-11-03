@@ -1,27 +1,32 @@
 import styles from "./FAQItem.module.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const FAQItem = () => {
-  const [FAQitems, setFAQitems] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/FAQ")
-    .then((res) => res.json())
-    .then((data) => {
-      setFAQitems(data.data)
-    });
-  }, [])
+const FAQItem = ({faqs}:{faqs:FAQ[]}) => {
 
-  const [askOpen, setAskOpen] = useState(null);
 
-  const handleClick = (index) => {
-    setAskOpen(askOpen === index ? null : index);
+  const [askOpen, setAskOpen] = useState(-1);
+
+  const handleClick = (index: number) => {
+    setAskOpen(askOpen === index ? -1 : index);
   };
+
+function compare( a:FAQ, b:FAQ ) {
+  if ( a.fields.index < b.fields.index ){
+    return -1;
+  }
+  if ( a.fields.index > b.fields.index ){
+    return 1;
+  }
+  return 0;
+}
+
+faqs.sort(compare);
 
   return (
     <div className={styles.FAQItem}>
-      {FAQitems.map((item, index) => (
+      {faqs.map((item, index) => (
         <div key={index} className={styles.item}>
           <button onClick={() => handleClick(index)} className={styles.faqitem}>
             <div
@@ -31,8 +36,12 @@ const FAQItem = () => {
                 paddingBottom: askOpen === index ? "10px" : "0",
               }}
             >
-              {item.pertanyaan}
-              {askOpen === index ? <ChevronUp style={{stroke: "#72BF82", strokeWidth:"3"}}/> : <ChevronDown style={{stroke: "#72BF82", strokeWidth:"3"}}/>}
+              {item.fields.pertanyaan}
+              {askOpen === index ? (
+                <ChevronUp style={{ stroke: "#72BF82", strokeWidth: "3" }} />
+              ) : (
+                <ChevronDown style={{ stroke: "#72BF82", strokeWidth: "3" }} />
+              )}
             </div>
             <div
               className={styles.answer}
@@ -43,7 +52,7 @@ const FAQItem = () => {
                 overflow: "hidden",
               }}
             >
-              <p>{item.jawaban}</p>
+              <p>{item.fields.jawaban}</p>
             </div>
           </button>
         </div>
@@ -53,3 +62,39 @@ const FAQItem = () => {
 };
 
 export default FAQItem;
+
+
+
+interface ContentfulLink {
+  sys: {
+    type: "Link";
+    linkType: string;
+    id: string;
+  };
+}
+
+interface FAQFields {
+  pertanyaan: string;
+  jawaban: string;
+  index:number;
+}
+
+interface FAQ {
+  metadata: {
+    tags: string[];
+    concepts: unknown[];
+  };
+  sys: {
+    space: ContentfulLink;
+    id: string;
+    type: "Entry";
+    createdAt: string;
+    updatedAt: string;
+    environment: ContentfulLink;
+    publishedVersion: number;
+    revision: number;
+    contentType: ContentfulLink;
+    locale: string;
+  };
+  fields: FAQFields;
+}
