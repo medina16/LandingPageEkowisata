@@ -1,10 +1,11 @@
 import styles from "./Testimoni.module.css";
 import NextPrev from "../NextPrevButton/NextPrev";
 import { useState, useEffect } from "react";
+import { Testimoni as TestiContent } from "../../../../../content_types";
 import { Circle, CircleDot } from "lucide-react";
 
-const Testimoni = ({ testimonis }: { testimonis: Testimoni[] }) => {
-  const [groupedTesti, setGroupedTesti] = useState<Testimoni[][]>([]);
+const Testimoni = ({ testimonis }: { testimonis: TestiContent[] }) => {
+  const [groupedTesti, setGroupedTesti] = useState<TestiContent[][]>([]);
   const [responsiveWidth, setResponsiveWidth] = useState(0);
   const [slideIndex, setIndex] = useState(0);
 
@@ -75,7 +76,7 @@ const Testimoni = ({ testimonis }: { testimonis: Testimoni[] }) => {
 
           
         >
-          {groupedTesti.map((group: Testimoni[], groupIndex: number) => (
+          {groupedTesti.map((group: TestiContent[], groupIndex: number) => (
             <div key={groupIndex} className={styles.groupTesti}>
               {group.map((item, index: number) => (
                 <div
@@ -124,35 +125,3 @@ const Testimoni = ({ testimonis }: { testimonis: Testimoni[] }) => {
 
 export default Testimoni;
 
-interface ContentfulLink {
-  sys: {
-    type: "Link";
-    linkType: string;
-    id: string;
-  };
-}
-
-interface TestimoniFields {
-  nama: string;
-  isiTestimoni: string;
-}
-
-interface Testimoni {
-  metadata: {
-    tags: string[];
-    concepts: unknown[];
-  };
-  sys: {
-    space: ContentfulLink;
-    id: string;
-    type: "Entry";
-    createdAt: string;
-    updatedAt: string;
-    environment: ContentfulLink;
-    publishedVersion: number;
-    revision: number;
-    contentType: ContentfulLink;
-    locale: string;
-  };
-  fields: TestimoniFields;
-}

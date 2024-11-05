@@ -3,6 +3,7 @@ import styles from "./Galeri.module.css";
 import NextPrev from "../NextPrevButton/NextPrev";
 import { useEffect, useState } from "react";
 import { Circle, CircleDot, X } from "lucide-react";
+import { FotoGaleri } from "../../../../../content_types";
 
 const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   const [groupedImg, setGroupedData] = useState<FotoGaleri[][]>([]);
@@ -182,75 +183,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
 
 export default Galeri;
 
-interface ContentfulLink {
-  sys: {
-    type: "Link";
-    linkType: string;
-    id: string;
-  };
-}
 
-interface ContentfulAssetFile {
-  url: string;
-  details: {
-    size: number;
-    image: {
-      width: number;
-      height: number;
-    };
-  };
-  fileName: string;
-  contentType: string;
-}
-
-interface ContentfulAsset {
-  metadata: {
-    tags: string[];
-    concepts: unknown[];
-  };
-  sys: {
-    space: ContentfulLink;
-    id: string;
-    type: "Asset";
-    createdAt: string;
-    updatedAt: string;
-    environment: ContentfulLink;
-    publishedVersion: number;
-    revision: number;
-    locale: string;
-  };
-  fields: {
-    title: string;
-    file: ContentfulAssetFile;
-  };
-}
-
-interface FotoGaleriFields {
-  judul: string;
-  deskripsi: string;
-  foto: ContentfulAsset;
-  label:string;
-}
-
-interface FotoGaleri {
-  metadata: {
-    tags: string[];
-    concepts: unknown[];
-  };
-  sys: {
-    space: ContentfulLink;
-    id: string;
-    type: "Entry";
-    createdAt: string;
-    updatedAt: string;
-    environment: ContentfulLink;
-    publishedVersion: number;
-    revision: number;
-    contentType: ContentfulLink;
-    locale: string;
-  };
-  fields: FotoGaleriFields;
-}
 
 const notFound: FotoGaleri = {
   metadata: {

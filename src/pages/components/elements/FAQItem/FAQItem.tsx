@@ -1,28 +1,26 @@
 import styles from "./FAQItem.module.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { FAQ } from "../../../../../content_types";
 
-
-const FAQItem = ({faqs}:{faqs:FAQ[]}) => {
-
-
+const FAQItem = ({ faqs }: { faqs: FAQ[] }) => {
   const [askOpen, setAskOpen] = useState(-1);
 
   const handleClick = (index: number) => {
     setAskOpen(askOpen === index ? -1 : index);
   };
 
-function compare( a:FAQ, b:FAQ ) {
-  if ( a.fields.index < b.fields.index ){
-    return -1;
+  function compare(a: FAQ, b: FAQ) {
+    if (a.fields.index < b.fields.index) {
+      return -1;
+    }
+    if (a.fields.index > b.fields.index) {
+      return 1;
+    }
+    return 0;
   }
-  if ( a.fields.index > b.fields.index ){
-    return 1;
-  }
-  return 0;
-}
 
-faqs.sort(compare);
+  faqs.sort(compare);
 
   return (
     <div className={styles.FAQItem}>
@@ -62,39 +60,3 @@ faqs.sort(compare);
 };
 
 export default FAQItem;
-
-
-
-interface ContentfulLink {
-  sys: {
-    type: "Link";
-    linkType: string;
-    id: string;
-  };
-}
-
-interface FAQFields {
-  pertanyaan: string;
-  jawaban: string;
-  index:number;
-}
-
-interface FAQ {
-  metadata: {
-    tags: string[];
-    concepts: unknown[];
-  };
-  sys: {
-    space: ContentfulLink;
-    id: string;
-    type: "Entry";
-    createdAt: string;
-    updatedAt: string;
-    environment: ContentfulLink;
-    publishedVersion: number;
-    revision: number;
-    contentType: ContentfulLink;
-    locale: string;
-  };
-  fields: FAQFields;
-}

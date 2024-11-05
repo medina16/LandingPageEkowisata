@@ -58,7 +58,7 @@ export default function ImageSlider() {
           </div>
           <h2>Nikmati Pesona Kearifan Lokal</h2>
           <h3>Kasih tulisan keren apa gitu di sini.</h3>
-          <div style={{width:"300px"}}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket" buttontype="primary"/></div>
+          <div style={{width:"300px"}}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket" icon="" buttontype="primary"/></div>
           
         </div>
         <div

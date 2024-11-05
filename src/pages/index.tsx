@@ -5,7 +5,9 @@ import Galeri from "./components/elements/Galeri/Galeri";
 import Button from "./components/elements/Button/Button";
 import Paket from "./components/layouts/Paket/Paket";
 import { createClient } from "contentful";
-import { MapPin } from "lucide-react";
+import { FAQ, PaketWisata, Testimoni as TestiContent, FotoGaleri, InfoWisata } from '../../content_types';
+
+
 
 export async function getStaticProps() {
   const client = createClient({
@@ -29,10 +31,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ faqs, pakets, testimonis, galeri, infos }) {
-  console.log(faqs);
-  console.log(pakets);
-  console.log(testimonis);
+export default function Home({ faqs, pakets, testimonis, galeri, infos } : { pakets: PaketWisata[], faqs: FAQ[], testimonis: TestiContent[], galeri: FotoGaleri[], infos: InfoWisata[] }) {
   return (
     <div className="main-wrapper rubik">
       <section>Bale Gandrung dan Tatamba adalah dua destinasi wisata</section>
@@ -65,9 +64,9 @@ export default function Home({ faqs, pakets, testimonis, galeri, infos }) {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-map-pin"
               >
                 <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
@@ -98,9 +97,9 @@ export default function Home({ faqs, pakets, testimonis, galeri, infos }) {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-map-pin"
               >
                 <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
