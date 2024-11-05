@@ -48,14 +48,16 @@
     /* flex-direction: column;
     width: 100%; */
     flex-direction: row;
-    max-width:870px;
+    /* max-width:870px; */
     flex-wrap: wrap;
+    /* justify-content: center; */
+    
 }
 
 .paketContainer {
     background-color: #f8f7ee;
     display: flex;
-    border-radius: 20px;
+    border-radius: 15px;
     line-height: 22px;
     font-size: 14px;
     transition: 0.2s ease-in-out;
@@ -81,13 +83,13 @@
 }
 
 .buttonWrapper{
-    padding: 0 15px 15px 15px;
+    padding: 0px 17px 17px 12px;
     width:220px;
 }
 
 .aktiFasilWrapper{
     display:flex;
-
+    margin-bottom:5px;
 }
 
 .aktivitasList, .fasilitasList{
@@ -114,7 +116,7 @@
     height: 100%;
     max-width: 100%;
     /* border-radius: 20px 0 0 20px ; */
-    border-radius: 20px 20px 0 0;
+    border-radius: 15px 15px 0 0;
 }
 
 .imageContainer{
@@ -122,7 +124,7 @@
     width: 100%;
     /* border-radius: 20px 0 0 20px ; */
 
-    border-radius: 20px 20px 0 0;
+    border-radius: 15px 15px 0 0;
     height: 200px;
 }
 
@@ -188,7 +190,7 @@
     max-width: 100%;
     object-fit: cover;
     max-height: 200px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 15px 15px 0 0;
     display: flex;
 
 }
@@ -223,7 +225,7 @@
         
         gap: 0;
         padding:0;
-        border-radius: 20px;
+        border-radius: 15px;
         flex-direction: column;
     }
 
@@ -247,11 +249,11 @@
         background-color: #72BF82;
         width: 100%;
         height: auto;
-        border-radius: 20px 20px 0 0;
+        border-radius: 15px 15px 0 0;
     }
 
     .img{
-        border-radius: 20px 20px 0 0;
+        border-radius: 15px 15px 0 0;
         display: block;
         height: 190px;
         width: 100%;
@@ -266,6 +268,41 @@
 
 }
 
-@media only screen and (max-width:670px) {
+@media only screen and (max-width:540px) {
+    .aktiFasilWrapper{
+        flex-direction: column;
+        gap:15px;
+    }
+
+    .aktivitasList, .fasilitasList{
+        width:100%;
+    }
+
+    .paketWrapper{
+        flex-direction: column;
+        gap:10px;
+    }
+
+    .paketContainer{
+        flex-direction: row;
+        width: 100%;
+        min-height:160px
+    }
+    .paketContainer .imageContainer{
+        border-radius: 15px 0 0 15px;
+        height: 100%;
+        width: 180px;
+    }
+    .paketContainer .img{
+        border-radius: 15px 0 0 15px;
+        width: 180px;
+        max-width: unset;
+        
+    }
+    .paketContent{
+        font-size:13px;
+        line-height: normal;
+    }
+
 
 }

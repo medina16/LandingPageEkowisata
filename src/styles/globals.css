@@ -94,6 +94,13 @@ html {
   padding: 0 30px;
 }
 
+.mapswrapper{
+  display: flex;
+  gap: 10px;
+  /* border-right: 2px solid grey; */
+  flex-direction: column;
+}
+
 @media only screen and (max-width:500px){
   .sect-title{
     font-size: 30px;

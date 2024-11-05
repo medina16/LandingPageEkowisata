@@ -20,7 +20,7 @@ const Info = ({infos}:{infos:InfoWisata[]}) => {
           alt=""
         />
       </div>
-      ))|| <div>lah</div>}
+      ))|| <div>Data tidak tersedia</div>}
       {/* <div className={styles.wrapper}>
         <div className={styles.innerWrapper}>
           <h3>Bale Gandrung</h3>

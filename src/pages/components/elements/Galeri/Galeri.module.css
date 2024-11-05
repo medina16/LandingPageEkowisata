@@ -1,10 +1,10 @@
 .img {
     object-fit: cover;
     /* max-width: 318px; */
-    width:100%;
+    width: 100%;
     max-height: 190px;
     border-radius: 10px;
-    
+    transition: 0.2s ease-in-out;
 }
 
 
@@ -34,10 +34,26 @@
     transition: 0.2s ease-in-out;
     width: 100%;
     padding: 0 3px;
+    
 }
 
-.itemTesti:hover {
+.itemTesti:hover{
+    scale:101%;
+}
+
+.img:hover {
     opacity: 80%;
+    
+}
+
+.imgLabel {
+    position: absolute;
+    background-color: #F9F9F2;
+    padding: 2px 15px;
+    font-size: 13px;
+    z-index: 30;
+    margin-top: 150px;
+    border-radius: 0 15px 15px 0;
 }
 
 .wrapper {
@@ -98,14 +114,14 @@
 
 }
 
-.imageContainer{
+.imageContainer {
     max-width: 100%;
     height: auto;
     border-radius: 20px 20px 0 0;
-    background-color:#72BF82;
+    background-color: #72BF82;
 }
 
-.slidedot{
+.slidedot {
     all: unset;
     display: block;
     cursor: pointer;
@@ -114,71 +130,84 @@
     transition: scale 100ms ease-in-out;
 }
 
-.slidedot > * {
+.slidedot>* {
     height: 70%;
     width: 70%;
-} 
-
-.slidedot:hover{
-    scale:1.2;
 }
 
-.slideDot{
-    display:none;
+.slidedot:hover {
+    scale: 1.2;
 }
 
-.bigTestiWrapper{
-    width: 100%;
+.slideDot {
+    display: none;
+}
+
+.bigTestiWrapper {
+    width: calc(100% + 130px);
     display: flex;
-    gap: 5px;
+    gap: 15px;
     align-items: center;
 }
 
-@media only screen and (max-width:762px){
+@media only screen and (max-width:762px) {
     .itemTesti {
         width: calc(100% / 2 - 5px);
 
     }
-    .modalContent{
+
+    .modalContent {
         margin: auto 30px;
     }
-    .nextprevWrapper{
-        display:none;
+
+    .nextprevWrapper {
+        display: none;
     }
-    .bigTestiWrapper{
+
+    .bigTestiWrapper {
         flex-direction: column;
+        width:100%;
     }
-    .slideDot{
+
+    .slideDot {
         display: flex;
         flex-direction: row;
     }
 }
 
-@media only screen and (max-width:680px){
-    /* .modalContentImg{
-        max-width:100%;
-        height:auto;
-    } */
+@media only screen and (max-width:1190px) {
+    .bigTestiWrapper{
+        width:100%
+    }
 }
 
 
 
-@media only screen and (max-width:540px){
-    .img{
+@media only screen and (max-width:540px) {
+    .img {
         max-width: 100%;
         width: 100%;
-        max-height:100%;
+        max-height: 100%;
     }
+    
+    .imgLabel{
+        margin-top:220px;
+        font-size:15px;
+        width:max-content;
+    }
+
     .itemTesti {
         width: 100%;
-        
+
     }
-    .groupTesti{
+
+    .groupTesti {
         height: 100%;
         padding: 0 5px;
     }
-    .wrapper{
-        min-width:100%;
-        overflow:hidden;
+
+    .wrapper {
+        min-width: 100%;
+        overflow: hidden;
     }
 }

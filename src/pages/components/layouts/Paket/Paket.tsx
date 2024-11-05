@@ -1,7 +1,7 @@
 import styles from "./Paket.module.css";
 import Image from "next/image";
 import Button from "../../elements/Button/Button";
-import { Leaf, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -25,6 +25,18 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
       ) || notFound
     );
   }
+
+  function compare(a: PaketWisata, b: PaketWisata) {
+    if (a.fields.kode < b.fields.kode) {
+      return -1;
+    }
+    if (a.fields.kode > b.fields.kode) {
+      return 1;
+    }
+    return 0;
+  }
+
+  pakets.sort(compare);
 
   return (
     <div className={styles.Paket}>
@@ -79,7 +91,7 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                             lineHeight: "normal",
                            }}
                           key={index}
-                          ><svg style={{ width: "17px" }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#72BF82" stroke="#72BF82" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg> {aktivitas}</div>
+                          ><svg style={{ width: "17px" }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#72BF82" stroke="#72BF82" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg> {aktivitas}</div>
                         )
                       ) || <div></div>}
                     </div>
@@ -117,11 +129,13 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   buttonlink={getSelectedPaket(pakets).fields.linkReservasiWa}
                   buttontype="primary"
                   buttontext="Reservasi Sekarang"
+                  icon="wa"
                 />
                 <Button
                   buttontype="secondary"
-                  buttonlink=""
+                  buttonlink={getSelectedPaket(pakets).fields.linkInstagram}
                   buttontext="Kunjungi Instagram"
+                  icon="ig"
                 />
               </div>
               <button className={styles.closeModal} onClick={toggleModal}>
@@ -142,6 +156,10 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                 alt=""
               />
             </div>
+            {/* {item.fields.label?
+                  (<div className={styles.imgLabel}>{item.fields.label}</div>) :
+                   <div></div>
+                } */}
             <div style={{ 
               display: "flex",
               flexDirection: "column",
@@ -149,11 +167,12 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
               justifyContent: "space-between"
              }}>
             <div className={styles.paketContent}>
-              <h2 style={{ display:"flex", gap: "8px"}}>
-                <div style={{display: "flex"}} className={styles.paketIcon}><Leaf /></div>
+              <div style={{ color:"#59c08b", fontWeight:"600"  }}>{item.fields.label}</div>
+              <h2 style={{ display:"flex", gap: "8px", lineHeight:"normal"}}>
+                {/* <div style={{display: "flex"}} className={styles.paketIcon}><Leaf /></div> */}
                  {item.fields.namaPaket}
               </h2>
-              <p>{item.fields.deskripsiSingkat}</p>
+              <p style={{ lineHeight:"20px" }}>{item.fields.deskripsiSingkat}</p>
             </div>
             <div
             className={styles.buttonWrapper}
@@ -163,6 +182,7 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                     buttontext="Lihat Detail"
                     buttonlink=""
                     buttontype="primary"
+                    icon="info"
                   />
                 </div>
             </div>
@@ -221,13 +241,16 @@ interface ContentfulAsset {
 
 interface PaketWisataFields {
   namaPaket: string;
-  deskripsiPaket: string;
+  deskripsiPanjang: Document;
   daftarFasilitas: string[];
   linkReservasiWa: string;
+  linkInstagram: string;
   fotoPaket: ContentfulAsset;
   aktivitas: string;
   deskripsiSingkat: string;
   daftarAktivitas: string[];
+  kode: number;
+  label:string;
 }
 
 interface PaketWisata {
@@ -250,12 +273,63 @@ interface PaketWisata {
   fields: PaketWisataFields;
 }
 
+interface Document {
+  data: Record<string, never>;
+  content: Array<TextNode | ParagraphNode | ListNode | HeadingNode | SubscriptNode>;
+  nodeType: string;
+}
+
+interface TextNode {
+  data: Record<string, never>;
+  marks: Mark[];
+  value: string;
+  nodeType: "text";
+}
+
+interface Mark {
+  type: "bold" | "code" | "subscript";
+}
+
+interface ParagraphNode {
+  data: Record<string, never>;
+  content: TextNode[];
+  nodeType: "paragraph";
+}
+
+interface HeadingNode {
+  data: Record<string, never>;
+  content: TextNode[];
+  nodeType: "heading-2";
+}
+
+interface ListNode {
+  data: Record<string, never>;
+  content: ListItemNode[];
+  nodeType: "unordered-list";
+}
+
+interface ListItemNode {
+  data: Record<string, never>;
+  content: ParagraphNode[];
+  nodeType: "list-item";
+}
+
+interface SubscriptNode {
+  data: Record<string, never>;
+  content: TextNode[];
+  nodeType: "paragraph";
+}
+
+
 const notFound: PaketWisata = {
   metadata: {
     tags: [],
     concepts: [],
   },
   fields: {
+    linkInstagram:"",
+    label:"",
+    kode:-1,
     deskripsiSingkat: "",
     fotoPaket: {
       metadata: {
@@ -302,7 +376,16 @@ const notFound: PaketWisata = {
       },
     },
     namaPaket: "",
-    deskripsiPaket: "",
+    deskripsiPanjang: 
+    {
+      nodeType:"",
+      data:{
+        
+      },
+      content:[],
+    }
+    
+    ,
     daftarFasilitas: [],
     linkReservasiWa: "",
     aktivitas: "",

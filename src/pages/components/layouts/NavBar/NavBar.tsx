@@ -14,7 +14,8 @@ const NavBar = () => {
         </div>
         <div className={styles.navlink}>
           <nav>
-            <a href="#paket">Paket</a>
+            <a href="#paket">Paket Wisata</a>
+            <a href="#lokasi">Lokasi</a>
             <a href="#galeri">Galeri</a>
             <a href="#testi">Testimoni</a>
             <a href="#faq">FAQ</a>

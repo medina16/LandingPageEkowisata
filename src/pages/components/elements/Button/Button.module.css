@@ -1,7 +1,7 @@
 .Button a {
     /* background: rgb(75,206,166); */
     width:100%;
-    padding:15px 10px;
+    padding:12px 10px;
     display:flex;
     justify-content: center;
     font-weight: 700;
@@ -11,6 +11,8 @@
     text-align: center;
     transition: all 0.3s ease-in-out;
     cursor:pointer;
+    gap:10px;
+    align-items: center;
 }
 
 .Button a:hover{
@@ -39,14 +41,6 @@
 .secondary a{
     color: #6ccf9c
 }
-
-/* .secondary:hover{
-    background-color: #6ccf9c;
-} */
-
-/* .secondary a:hover{
-    color:#F9F9F2;
-} */
 
 @media only screen and (max-width:840px){
     .Button a{

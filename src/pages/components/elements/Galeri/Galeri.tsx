@@ -99,7 +99,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
       <div className={styles.wrapper}>
         <div
           className={styles.Galeri}
-          style={responsiveWidth>762? {transform:`translateX(${(-100 / 3) * slideIndex}%)`} : {transform: `translateX(${(-100) * slideIndex}%)`}}
+          style={responsiveWidth>762? {transform:`translateX(${(-100 / 3) * slideIndex}%)`} :  {transform: `translateX(${(-100) * slideIndex}%)`}}
         >
           {groupedImg.map((group: FotoGaleri[], groupIndex: number) => (
             <div key={groupIndex} className={styles.groupTesti} style={responsiveWidth>762?{ width: "calc(100%/3)" }:{width:"100%"}}>
@@ -110,6 +110,11 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                   onClick={() => imageModal(item.sys.id)}
                   style={{ cursor: "pointer" }}
                 >
+                  {item.fields.label?
+                  (<div className={styles.imgLabel}>{item.fields.label}</div>) :
+                   <div></div>
+                }
+                  
                   <Image
                     src={"http:" + item.fields.foto.fields.file.url}
                     width={560}
@@ -224,6 +229,7 @@ interface FotoGaleriFields {
   judul: string;
   deskripsi: string;
   foto: ContentfulAsset;
+  label:string;
 }
 
 interface FotoGaleri {
@@ -252,6 +258,7 @@ const notFound: FotoGaleri = {
     concepts: [],
   },
   fields: {
+    label:"",
     foto: {
       metadata: {
         tags: [],
