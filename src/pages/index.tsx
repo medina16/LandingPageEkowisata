@@ -34,7 +34,7 @@ export async function getStaticProps() {
 export default function Home({ faqs, pakets, testimonis, galeri, infos } : { pakets: PaketWisata[], faqs: FAQ[], testimonis: TestiContent[], galeri: FotoGaleri[], infos: InfoWisata[] }) {
   return (
     <div className="main-wrapper rubik">
-      <section>Bale Gandrung dan Tatamba adalah dua destinasi wisata</section>
+      {/* <section>Bale Gandrung dan Tatamba adalah dua destinasi wisata</section> */}
       <section id="info">
         <Info infos={infos} />
       </section>
