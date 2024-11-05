@@ -1,9 +1,9 @@
-import FAQItem from "./components/elements/FAQItem/FAQItem";
-import Testimoni from "./components/elements/Testimoni/Testimoni";
-import Info from "./components/layouts/Info/Info";
-import Galeri from "./components/elements/Galeri/Galeri";
-import Button from "./components/elements/Button/Button";
-import Paket from "./components/layouts/Paket/Paket";
+import FAQItem from "../components/elements/FAQItem/FAQItem";
+import Testimoni from "../components/elements/Testimoni/Testimoni";
+import Info from "../components/layouts/Info/Info";
+import Galeri from "../components/elements/Galeri/Galeri";
+import Button from "../components/elements/Button/Button";
+import Paket from "../components/layouts/Paket/Paket";
 import { createClient } from "contentful";
 import { FAQ, PaketWisata, Testimoni as TestiContent, FotoGaleri, InfoWisata } from '../../content_types';
 

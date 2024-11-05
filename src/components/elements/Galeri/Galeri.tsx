@@ -3,7 +3,7 @@ import styles from "./Galeri.module.css";
 import NextPrev from "../NextPrevButton/NextPrev";
 import { useEffect, useState } from "react";
 import { Circle, CircleDot, X } from "lucide-react";
-import { FotoGaleri } from "../../../../../content_types";
+import { FotoGaleri } from "../../../../content_types";
 
 const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   const [groupedImg, setGroupedData] = useState<FotoGaleri[][]>([]);

@@ -1,7 +1,7 @@
 import styles from "./Testimoni.module.css";
 import NextPrev from "../NextPrevButton/NextPrev";
 import { useState, useEffect } from "react";
-import { Testimoni as TestiContent } from "../../../../../content_types";
+import { Testimoni as TestiContent } from "../../../../content_types";
 import { Circle, CircleDot } from "lucide-react";
 
 const Testimoni = ({ testimonis }: { testimonis: TestiContent[] }) => {

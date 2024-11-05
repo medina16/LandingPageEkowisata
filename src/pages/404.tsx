@@ -1,4 +1,4 @@
-import Button from "./components/elements/Button/Button";
+import Button from "../components/elements/Button/Button";
 
 const Custom404 = () => {
     return(

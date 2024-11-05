@@ -4,7 +4,7 @@ import Button from "../../elements/Button/Button";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { PaketWisata } from "../../../../../content_types";
+import { PaketWisata } from "../../../../content_types";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {

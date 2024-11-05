@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./Info.module.css";
-import { InfoWisata } from "../../../../../content_types";
+import { InfoWisata } from "../../../../content_types";
 
 const Info = ({infos}:{infos:InfoWisata[]}) => {
   return (

@@ -1,7 +1,7 @@
 import styles from "./FAQItem.module.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import { FAQ } from "../../../../../content_types";
+import { FAQ } from "../../../../content_types";
 
 const FAQItem = ({ faqs }: { faqs: FAQ[] }) => {
   const [askOpen, setAskOpen] = useState(-1);
