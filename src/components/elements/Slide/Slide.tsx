@@ -2,6 +2,7 @@
 
 import styles from "./Slide.module.css";
 import  ImageSlider  from "./ImageSlider";
+import { Slider } from "../../../../content_types";
 
 // const imgStyle = {
 //   width: '100%',
@@ -10,18 +11,19 @@ import  ImageSlider  from "./ImageSlider";
 
 
 
-const Slide = () => {
+const Slide = ({slider}: {slider: Slider}) => {
   return (
     <div className={styles.Slide}>
       <div
         className="heroimg"
         style={{
-          width: "100%",
+          width: "100vw",
           height: " 100% ",
           margin: "0 auto",
         }}
       >
-        <ImageSlider />
+        <ImageSlider slider={slider}/>
+        
       </div>
     </div>
   );

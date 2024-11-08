@@ -18,14 +18,14 @@ const Button: React.FC<ButtonProps> = ({
       <div className={styles.Button}>
         {buttontype == "primary" && (
           <div className={styles.primary}>
-            <a>
+            <a title={buttontext}>
             {icon == "info" && <i className="fa fa-info-circle" aria-hidden="true"></i>}
                 {buttontext}</a>
           </div>
         )}
         {buttontype == "secondary" && (
           <div className={styles.secondary}>
-            <a>
+            <a title={buttontext}>
               {buttontext}
             </a>
           </div>
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
     <div className={styles.Button}>
       {buttontype == "primary" && (
         <div className={styles.primary}>
-          <a target="_blank" href={buttonlink}>
+          <a title={buttontext} rel="noopener noreferrer" target={!buttonlink.includes("#")? "_blank" : ""} href={buttonlink}>
           {icon != "" && (
                 <div>
                   {icon == "wa" && (
@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
       )}
       {buttontype == "secondary" && (
         <div className={styles.secondary}>
-          <a target="_blank" href={buttonlink}>
+          <a title={buttontext} rel="noopener noreferrer" target={!buttonlink.includes("#")? "_blank" : ""} href={buttonlink}>
           {icon != "" && (
                 <div>
                   {icon == "wa" && (

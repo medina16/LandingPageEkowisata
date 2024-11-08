@@ -1,28 +1,55 @@
-.MedSos{
-    width:40px;
-    position:fixed;
-    right:20px;
+.MedSos {
+    width: 40px;
+    position: fixed;
+    right: 20px;
     bottom: 20px;
     z-index: 19;
 }
 
-.MedSos .sosmed{
-    background-color: #354C3F;
-    padding: 12px 23px;
+
+.scrollUp,
+.sosmed {
+    width: fit-content;
+    padding: 12px 12px;
     justify-content: center;
     border-radius: 30px;
     font-weight: 600;
     letter-spacing: 0.5px;
     font-size: 24px;
-    display: flex;
-    width: 100%;
     margin: 5px 20px 0 0;
     color: #F9F9F2;
     /* line-height: 3px; */
     align-items: center;
+    display: flex;
 }
 
-.MedSos .sosmed:hover{
+.MedSos i {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
+
+.sosmed {
+    background-color: #354C3F;
+    transition: 0.2s ease-in-out;
+    padding: 12px 12px;
+}
+
+.scrollUp {
     background-color: #72BF82;
-    transition: 0.5s;
+    color: #F9F9F2;
+    transition: 0.2s ease-in-out;
+    padding: 12px 12px;
+}
+
+
+.sosmed:hover {
+    background-color: #72BF82;
+    color: #F9F9F2;
+    padding: 12px 12px;
+}
+
+.scrollUp:hover {
+    background-color: #354C3F;
+    padding: 12px 12px;
 }

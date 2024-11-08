@@ -3,16 +3,13 @@ import { useState, useEffect } from "react";
 import styles from "./Slide.module.css";
 import Button from "../Button/Button";
 import Image from "next/image";
+import { Slider } from "../../../../content_types";
 
 
-export default function ImageSlider() {
+export default function ImageSlider({slider}: {slider: Slider}) {
   const [imageIndex, setImageIndex] = useState(0);
   const imageUrls = [
-    "/DJI_0811.JPG",
-    "/DSC05718.JPG",
-    "/DSC05734.JPG",
-    "/DSC05762 (1).JPG",
-    "/DJI_0822.JPG",
+    ...slider.fields.kumpulanFoto
   ];
 
   function showNextImage() {
@@ -56,9 +53,9 @@ export default function ImageSlider() {
               </button>
             ))}
           </div>
-          <h2>Nikmati Pesona Kearifan Lokal</h2>
-          <h3>Kasih tulisan keren apa gitu di sini.</h3>
-          <div style={{width:"300px"}}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket" icon="" buttontype="primary"/></div>
+          <h2>{slider.fields.headline}</h2>
+          <h3>{slider.fields.subtitle}</h3>
+          <div className={styles.buttonWrapper}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket" icon="" buttontype="primary"/></div>
           
         </div>
         <div
@@ -80,13 +77,13 @@ export default function ImageSlider() {
           overflow: "hidden",
         }}
       >
-        {imageUrls.map((url) => (
+        {imageUrls.map((foto) => (
           <Image
           width={1920}
-          height={1280}
-            key={url}
+          height={1080}
+            key={foto.fields.file.url}
             alt=""
-            src={url}
+            src={"http:" + foto.fields.file.url}
             className={styles.imgslides}
             style={{ translate: `${-100 * imageIndex}%` }}
           />

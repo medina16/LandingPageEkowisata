@@ -15,10 +15,10 @@ const NavBar = () => {
         <div className={styles.navlink}>
           <nav>
             <a href="#paket">Paket Wisata</a>
-            <a href="#lokasi">Lokasi</a>
             <a href="#galeri">Galeri</a>
             <a href="#testi">Testimoni</a>
             <a href="#faq">FAQ</a>
+            <a href="#kontak">Kontak</a>
           </nav>
         </div>
         {navOpen && (
@@ -29,25 +29,31 @@ const NavBar = () => {
                   <a href="#paket" onClick={() => NavListOpen(!navOpen)}>
                     Paket
                   </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3"}}/>
+                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
                 </div>
                 <div className={styles.navlinkContainer}>
                   <a href="#galeri" onClick={() => NavListOpen(!navOpen)}>
                     Galeri
                   </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3"}}/>
+                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
                 </div>
                 <div className={styles.navlinkContainer}>
                   <a href="#testi" onClick={() => NavListOpen(!navOpen)}>
                     Testimoni
                   </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3"}}/>
+                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
                 </div>
-                <div className={styles.navlinkContainer} style={{ borderBottom:"3px solid #cbdbc6" }}>
+                <div className={styles.navlinkContainer}>
                   <a href="#faq" onClick={() => NavListOpen(!navOpen)} >
                     FAQ
                   </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3"}}/>
+                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                </div>
+                <div className={styles.navlinkContainer} style={{ borderBottom:"3px solid #cbdbc6" }}>
+                  <a href="#kontak" onClick={() => NavListOpen(!navOpen)} >
+                    Kontak
+                  </a>
+                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
                 </div>
               </nav>
             </div>

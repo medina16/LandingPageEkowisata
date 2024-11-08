@@ -7,6 +7,7 @@
   font-family: var(--font-rubik);
   letter-spacing: 0.34px;
   line-height:24px;
+  
 }
 
 .rubik h2{
@@ -40,6 +41,7 @@ a {
 a:hover {
   color: #72BF82;
   transition: 0.5s;
+  padding-bottom:5px;
 }
 
 section {
@@ -61,7 +63,9 @@ html {
   text-align: center;
   font-size: 40px;
   margin-bottom: 30px;
-  padding-top:65px
+  padding-top:65px;
+  /* padding-bottom: 20px;
+  border-bottom: 5px solid #72bf82; */
 }
 
 .not-found {
@@ -108,10 +112,16 @@ html {
     padding-top: 50px;
   }
   .rubik{
-    line-height: 22px;
+    line-height: 20px;
+    
   }
   .main-wrapper{
-    padding: 0px 10px;
+    padding: 0px 20px;
+  }
+
+  html,body{
+    
+    font-size:14px;
   }
 
 

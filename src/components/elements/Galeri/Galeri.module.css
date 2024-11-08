@@ -25,7 +25,6 @@
     display: flex;
     margin: 0;
     flex-shrink: 0;
-    max-height: 410px;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -33,7 +32,7 @@
 .itemTesti {
     transition: 0.2s ease-in-out;
     width: 100%;
-    padding: 0 3px;
+    padding: 5px;
     
 }
 
@@ -43,7 +42,6 @@
 
 .img:hover {
     opacity: 80%;
-    
 }
 
 .imgLabel {

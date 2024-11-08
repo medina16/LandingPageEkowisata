@@ -55,8 +55,6 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   
   // Tombol Next/Previous untuk ganti index slide
   const [slideIndex, setIndex] = useState(0);
-  console.log(slideIndex)
-  console.log(groupedImg.length)
   function showNext() {
     setIndex((index) => {
       if (slideIndex === groupedImg.length-3) return 0;
@@ -115,14 +113,14 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                   (<div className={styles.imgLabel}>{item.fields.label}</div>) :
                    <div></div>
                 }
-                  
-                  <Image
+                  <div style={{ backgroundColor:"#72BF82" }} className={styles.img}> <Image
                     src={"http:" + item.fields.foto.fields.file.url}
                     width={560}
                     height={270}
                     alt={item.fields.judul}
                     className={styles.img}
-                  />
+                  /></div>
+                 
                 </div>
               ))}
             </div>
@@ -157,7 +155,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                 </div>
 
             <button className={styles.closeModal} onClick={toggleModal}>
-              <X />
+              <X style={{stroke: "white"}}/>
             </button>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import NavBar from "./NavBar/NavBar";
-import Slide from "../elements/Slide/Slide";
 import { useRouter } from "next/router";
 import { Rubik } from "next/font/google";
 import MedSos from "../elements/MedSos/MedSos";
@@ -24,10 +23,8 @@ const AppShell = (props: AppShellProps) => {
     <div className={rubik_init.variable}>
       {!disableNavHeaderMedsos.includes(pathname) && (
         <div className="rubik">
-          <NavBar /> &&
-          <header>
-            <Slide />
-          </header>
+          <NavBar />
+          
           <MedSos />
         </div>
       )}

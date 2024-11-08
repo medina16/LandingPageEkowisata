@@ -10,17 +10,18 @@
   z-index: 20;
   align-items: center;
   padding: 0 5% 0 5%;
-  color:#f8f7ee;
+  color: #f8f7ee;
   /* border-bottom: 3px solid #dee9db; */
 }
 
-.NavBar a{
-  color:#ffffff;
+.NavBar a {
+  color: #ffffff;
   transition: 0.2s ease-in-out;
 }
 
-.NavBar a:hover{
-  scale:110%
+.NavBar a:hover {
+  padding-bottom: 2px;
+  border-bottom: 3px solid #ffffff;
 }
 
 .NavBar nav {
@@ -33,7 +34,7 @@
   letter-spacing: 3px;
   font-size: 14px;
   white-space: nowrap;
-  margin-left:30px;
+  margin-left: 20px;
 }
 
 .NavBar h1 {
@@ -51,13 +52,14 @@
 
 @media only screen and (max-width:920px) {
 
-  .NavBar a:hover{
-    scale:103%
+  .NavBar a:hover {
+    scale: 103%
   }
 
-  .NavBar{
+  .NavBar {
     padding: 0px 20px;
   }
+
   .navicon {
     display: flex;
     cursor: pointer;
@@ -92,21 +94,25 @@
 
   .NavBar a {
     font-size: 20px;
-    color:#354C3F;
-    padding: 15px 20px;
-    width:90%;
+    color: #354C3F;
+    width: 90%;
   }
 
-  .navlinkContainer{
+  .NavBar a:hover {
+    border-bottom: none;
+  }
+
+  .navlinkContainer {
     border-top: 3px solid #cbdbc6;
     width: 100%;
     display: flex;
     align-content: center;
     align-items: center;
     transition: 0.3s ease-in-out;
+    padding: 15px 15px 15px 15px;
   }
 
-  .navlinkContainer:hover{
+  .navlinkContainer:hover {
     background-color: rgb(193, 211, 190);
   }
 
@@ -123,7 +129,7 @@
     margin-top: 46px;
   }
 
-  .overlay button{
+  .overlay button {
     all: unset;
     position: absolute;
     top: 10px;

@@ -262,6 +262,10 @@ interface ContentfulLink {
     nama: string;
     deskripsi: string;
     foto: ContentfulAsset;
+    contohAktivitas: string[];
+    lokasi: string;
+    linkMaps:string;
+
   }
   
   export interface InfoWisata {
@@ -282,4 +286,74 @@ interface ContentfulLink {
       locale: string;
     };
     fields: InfoWisataFields;
+  }
+
+
+  interface ContentfulLink {
+    sys: {
+      type: "Link";
+      linkType: string;
+      id: string;
+    };
+  }
+  
+  interface ContentfulAssetFile {
+    url: string;
+    details: {
+      size: number;
+      image: {
+        width: number;
+        height: number;
+      };
+    };
+    fileName: string;
+    contentType: string;
+  }
+  
+  interface ContentfulAsset {
+    metadata: {
+      tags: string[];
+      concepts: unknown[];
+    };
+    sys: {
+      space: ContentfulLink;
+      id: string;
+      type: "Asset";
+      createdAt: string;
+      updatedAt: string;
+      environment: ContentfulLink;
+      publishedVersion: number;
+      revision: number;
+      locale: string;
+    };
+    fields: {
+      title: string;
+      file: ContentfulAssetFile;
+    };
+  }
+  
+  interface SliderFields {
+    headline: string;
+    subtitle: string;
+    kumpulanFoto: ContentfulAsset[];
+  }
+  
+ export interface Slider {
+    metadata: {
+      tags: string[];
+      concepts: unknown[];
+    };
+    sys: {
+      space: ContentfulLink;
+      id: string;
+      type: "Entry";
+      createdAt: string;
+      updatedAt: string;
+      environment: ContentfulLink;
+      publishedVersion: number;
+      revision: number;
+      contentType: ContentfulLink;
+      locale: string;
+    };
+    fields: SliderFields;
   }

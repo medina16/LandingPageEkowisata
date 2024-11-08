@@ -1,0 +1,62 @@
+.Kontak{
+    width: 100%;
+}
+
+.wrapper{
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo{
+    max-height: 120px;
+    border-radius: 50%;
+}
+
+.kontakContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    width: 50%;
+}
+
+.kontakInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.buttonWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+@media only screen and (max-width:810px){
+    .wrapper{
+        flex-direction: column;
+    }
+    .kontakContainer{
+        width:80%
+    }
+}
+
+@media only screen and (max-width:540px){
+    .wrapper{
+        flex-direction: column;
+    }
+
+    .kontakContainer{
+        flex-direction: column;
+        width:100%;
+        text-align: center;
+    }
+}

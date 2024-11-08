@@ -34,6 +34,10 @@
     line-height: 18px;
 }
 
+.buttonWrapper{
+    width:300px;
+}
+
 .imgslides{
     object-fit: cover;
     width: 100%;
@@ -116,12 +120,16 @@
     }
 }
 
-@media only screen and (max-width:490px){
+@media only screen and (max-width:450px){
     .herotext h2{
-        font-size: 35px;
+        font-size: 30px;
+        line-height: 28px;
     }
     .herotext{
         text-align: center;
         align-items: center;
+    }
+    .buttonWrapper{
+        width:100%
     }
 }

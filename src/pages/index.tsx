@@ -2,10 +2,11 @@ import FAQItem from "../components/elements/FAQItem/FAQItem";
 import Testimoni from "../components/elements/Testimoni/Testimoni";
 import Info from "../components/layouts/Info/Info";
 import Galeri from "../components/elements/Galeri/Galeri";
-import Button from "../components/elements/Button/Button";
 import Paket from "../components/layouts/Paket/Paket";
 import { createClient } from "contentful";
-import { FAQ, PaketWisata, Testimoni as TestiContent, FotoGaleri, InfoWisata } from '../../content_types';
+import { Slider, FAQ, PaketWisata, Testimoni as TestiContent, FotoGaleri, InfoWisata } from '../../content_types';
+import Kontak from "@/components/layouts/Kontak/Kontak";
+import Slide from "@/components/elements/Slide/Slide";
 
 
 
@@ -19,6 +20,7 @@ export async function getStaticProps() {
   const resTesti = await client.getEntries({ content_type: "testimoni" });
   const resGaleri = await client.getEntries({ content_type: "fotoGaleri" });
   const resInfos = await client.getEntries({ content_type: "infoWisata" });
+  const resSlider = await client.getEntries({ content_type: "carousel" });
 
   return {
     props: {
@@ -27,18 +29,24 @@ export async function getStaticProps() {
       testimonis: resTesti.items,
       galeri: resGaleri.items,
       infos: resInfos.items,
+      slider: resSlider.items.at(0),
     },
   };
 }
 
-export default function Home({ faqs, pakets, testimonis, galeri, infos } : { pakets: PaketWisata[], faqs: FAQ[], testimonis: TestiContent[], galeri: FotoGaleri[], infos: InfoWisata[] }) {
+export default function Home({ faqs, pakets, testimonis, galeri, infos, slider } : { pakets: PaketWisata[], faqs: FAQ[], testimonis: TestiContent[], galeri: FotoGaleri[], infos: InfoWisata[], slider: Slider }) {
   return (
+    
     <div className="main-wrapper rubik">
+      <header>
+            <Slide slider={slider}/>
+            
+          </header>
       {/* <section>Bale Gandrung dan Tatamba adalah dua destinasi wisata</section> */}
       <section id="info">
         <Info infos={infos} />
       </section>
-      <section id="lokasi">
+      {/* <section id="lokasi">
         <h2 className="sect-title">Lokasi</h2>
         <div
           style={{
@@ -115,7 +123,7 @@ export default function Home({ faqs, pakets, testimonis, galeri, infos } : { pak
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section id="paket">
         <h2 className="sect-title">Paket Wisata</h2>
         <Paket pakets={pakets} />
@@ -135,60 +143,12 @@ export default function Home({ faqs, pakets, testimonis, galeri, infos } : { pak
       </section>
       <section id="kontak" style={{ paddingBottom: "0" }}>
         <h2 className="sect-title" style={{ marginBottom:"15px"}}>Masih punya pertanyaan?</h2>
-        <h3>Hubungi kami lewat kontak berikut!</h3>
-        <div style={{ display: "flex" , gap:"30px", marginTop:"20px"}}>
-          <div style={{ display: "flex", flexDirection: "row", gap:"20px", alignItems:"center"}}>
-            <img
-              src="/Bale Gandrung.jpg"
-              style={{ height: "120px", borderRadius: "50%" }}
-            ></img>
-            <div style={{ display: "flex", flexDirection: "column", gap:"10px"}}>
-              <h3>Bale Gandrung</h3>
-              <div style={{ width: "300px", display:"flex", flexDirection:"column", gap:"5px"}}>
-                <Button
-                  buttontype="primary"
-                  buttontext="WhatsApp"
-                  buttonlink="http://web.whatsapp.com"
-                  icon="wa"
-                />
-                <Button
-                  buttontype="primary"
-                  buttontext="Instagram"
-                  buttonlink="https://www.instagram.com/wisataalambalegandrung___/"
-                  icon="ig"
-                />
-              </div>
-            </div>
-          </div>
-          <div style={{ display: "flex", flexDirection: "row", gap:"20px", alignItems:"center"}}>
-            <img
-              src="/Tatamba.jpg"
-              style={{ height: "120px", borderRadius: "50%" }}
-            ></img>
-            <div style={{ display: "flex", flexDirection: "column", gap:"10px"}}>
-              <h3>Tatamba</h3>
-              <div style={{ width: "300px", display:"flex", flexDirection:"column", gap:"5px"}}>
-                <Button
-                  buttontype="primary"
-                  buttontext="WhatsApp"
-                  buttonlink="http://web.whatsapp.com"
-                  icon="wa"
-                />
-                <Button
-                  buttontype="primary"
-                  buttontext="Instagram"
-                  buttonlink="https://www.instagram.com/jeep_tatamba"
-                  icon="ig"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Kontak/>
 
         <img
           src="/Vector (6).png"
           alt=""
-          style={{ minWidth: "1800px", maxHeight: "240px", padding: "0" }}
+          style={{ width: "100vw", maxHeight: "150px", padding: "0", marginTop: "30px"}}
         />
       </section>
     </div>
