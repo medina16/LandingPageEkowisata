@@ -61,7 +61,7 @@ export default function ImageSlider({slider}: {slider: Slider}) {
         <div
         style={{
           background:
-            "linear-gradient(90deg, rgba(9,26,48,0.7336182336182336) 0%, rgba(38,38,82,0.3328467153284671) 42%, rgba(0,111,255,0.10072992700729932) 100%)",
+            "#15342a7d",
           display: "block",
           width: "100%",
           height: "100%",
@@ -79,8 +79,8 @@ export default function ImageSlider({slider}: {slider: Slider}) {
       >
         {imageUrls.map((foto) => (
           <Image
-          width={1920}
-          height={1080}
+          width={1280}
+          height={720}
             key={foto.fields.file.url}
             alt=""
             src={"http:" + foto.fields.file.url}

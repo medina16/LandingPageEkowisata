@@ -7,9 +7,9 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
   return (
     <div className={styles.Info}>
       <div>
-        <h1 style={{ textAlign: "center", marginBottom: "10px" }}>
+        <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
           Yuk, main ke Bale Gandrung dan Tatamba!
-        </h1>
+        </h2>
         <p>
           Bale Gandrung dan Tatamba merupakan tempat yang cocok untuk
           menghabiskan hari dengan aktivitas outdoor sambil memanjakan

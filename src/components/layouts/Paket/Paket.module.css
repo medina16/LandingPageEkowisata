@@ -44,7 +44,7 @@
 
 .paketWrapper {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     /* flex-direction: column;
     width: 100%; */
     flex-direction: row;
@@ -61,7 +61,7 @@
     line-height: 22px;
     font-size: 14px;
     transition: 0.2s ease-in-out;
-    width: calc(50% - 15px);
+    width: calc(50% - 5px);
     flex-direction: column;
     height: 300px;
     position: relative;

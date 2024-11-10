@@ -14,17 +14,17 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Judul Website</title>
         <meta
           name="description"
-          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet."
+          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet, Jawa Tengah."
         />
         <meta property="og:title" content="Add title here" />
-        <meta property="og:description" content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet." />
+        <meta property="og:description" content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet, Jawa Tengah." />
         <meta
           property="og:image"
           content="https://images.ctfassets.net/4wpmwscnwvd0/YFU9NeL7rDDPWH9diIdY6/7c58545c40e7f99e68a50a47af6a5cf1/DJI_0822.JPG"
         />
         <meta property="og:url" content="https://your-website.com" />
         <meta name="twitter:title" content="Add title here" />
-        <meta name="twitter:description" content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet." />
+        <meta name="twitter:description" content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet, Jawa Tengah." />
         <meta
           name="twitter:url"
           content="https://images.ctfassets.net/4wpmwscnwvd0/YFU9NeL7rDDPWH9diIdY6/7c58545c40e7f99e68a50a47af6a5cf1/DJI_0822.JPG"

@@ -3,7 +3,7 @@
     /* max-width: 318px; */
     width: 100%;
     max-height: 190px;
-    border-radius: 10px;
+    border-radius: 15px 15px 0 0;
     transition: 0.2s ease-in-out;
 }
 
@@ -25,7 +25,7 @@
     display: flex;
     margin: 0;
     flex-shrink: 0;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
@@ -33,11 +33,11 @@
     transition: 0.2s ease-in-out;
     width: 100%;
     padding: 5px;
-    
+
 }
 
-.itemTesti:hover{
-    scale:101%;
+.itemTesti:hover {
+    scale: 101%;
 }
 
 .img:hover {
@@ -45,19 +45,22 @@
 }
 
 .imgLabel {
-    position: absolute;
+    position: relative;
     background-color: #F9F9F2;
     padding: 2px 15px;
     font-size: 13px;
     z-index: 30;
-    margin-top: 150px;
-    border-radius: 0 15px 15px 0;
+    /* margin-top: 150px; */
+    border-radius: 0 0 15px 15px;
+    /* width: 100%; */
+    /* height: inherit; */
+    /* bottom: 58px; */
 }
 
 .wrapper {
     width: 100%;
     overflow: hidden;
-    min-width: 510px
+    min-width: 1045px;
 }
 
 .modal,
@@ -144,11 +147,11 @@
 .bigTestiWrapper {
     width: calc(100% + 130px);
     display: flex;
-    gap: 15px;
     align-items: center;
 }
 
-@media only screen and (max-width:762px) {
+
+@media only screen and (max-width:1190px) {
     .itemTesti {
         width: calc(100% / 2 - 5px);
 
@@ -164,18 +167,29 @@
 
     .bigTestiWrapper {
         flex-direction: column;
-        width:100%;
+        width: 100%;
     }
 
     .slideDot {
         display: flex;
         flex-direction: row;
     }
+
+    .groupTesti {
+        scroll-snap-align: start;
+    }
+
+    .wrapper {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        min-width: 100%;
+    }
 }
 
 @media only screen and (max-width:1190px) {
-    .bigTestiWrapper{
-        width:100%
+    .bigTestiWrapper {
+        width: 100%
     }
 }
 
@@ -187,11 +201,11 @@
         width: 100%;
         max-height: 100%;
     }
-    
-    .imgLabel{
-        margin-top:220px;
-        font-size:15px;
-        width:max-content;
+
+    .imgLabel {
+        /* margin-top: 220px; */
+        font-size: 15px;
+        width: max-content;
     }
 
     .itemTesti {
@@ -206,6 +220,10 @@
 
     .wrapper {
         min-width: 100%;
-        overflow: hidden;
     }
+
+    .itemTesti {
+        padding: 0;
+    }
+
 }
