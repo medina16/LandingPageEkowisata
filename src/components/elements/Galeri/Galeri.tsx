@@ -142,7 +142,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                         src={"http:" + item.fields.foto.fields.file.url}
                         alt={item.fields.judul}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 540px) 50vw, (max-width: 1190px) 30vw, 15vw"
                         className={styles.img}
                       />
                     </div>
@@ -177,7 +177,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                 }
                 alt={getSelectedImage(galeri)?.fields.judul || ""}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 680px) 10vw, 25vw"
                 className={styles.modalContentImg}
               />
             </div>

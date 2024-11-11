@@ -1,19 +1,19 @@
 import Image from "next/image";
 import styles from "./Info.module.css";
 import { InfoWisata } from "../../../../content_types";
-import { MapPin } from "lucide-react"
+import { MapPin } from "lucide-react";
 
 const Info = ({ infos }: { infos: InfoWisata[] }) => {
   return (
     <div className={styles.Info}>
       <div>
         <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
-          Yuk, main ke Bale Gandrung dan Tatamba!
+          Yuk, wisata ke Bale Gandrung dan Tatamba!
         </h2>
         <p>
           Bale Gandrung dan Tatamba merupakan tempat yang cocok untuk
-          menghabiskan hari dengan aktivitas outdoor sambil memanjakan
-          mata dengan keindahan alam autentik. Dengan konsep <b>agroeduwisata</b>,
+          menghabiskan hari dengan aktivitas outdoor sambil memanjakan mata
+          dengan keindahan alam autentik. Dengan konsep <b>agroeduwisata</b>,
           kedua destinasi wisata di kawasan Gunung Slamet, Jawa Tengah ini tidak
           hanya menawarkan <b>pengalaman seru</b>, tetapi juga mendukung{" "}
           <b>pelestarian alam</b> setempat dan menjadi sarana <b>edukasi</b>{" "}
@@ -28,21 +28,21 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
             </a> */}
           <div className={styles.contentWrapper}>
             <div className={styles.imgContainer}>
-            <Image
-              src={"http:" + item.fields.foto.fields.file.url}
-              alt={item.fields.nama}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className={styles.img}
-
-            />
+              <Image
+                src={"http:" + item.fields.foto.fields.file.url}
+                alt={item.fields.nama}
+                fill
+                sizes="(max-width: 1023px): 100vw, 10vw"
+                className={styles.img}
+              />
             </div>
-            
+
             <div className={styles.innerWrapper}>
               <div className={styles.tes3}>
-                <h3>{item.fields.nama}</h3>
+                <h2>{item.fields.nama}</h2>
                 <a
-                rel="noopener noreferrer"
+                  title={"Lokasi " + item.fields.nama}
+                  rel="noopener noreferrer"
                   target="_blank"
                   href={item.fields.linkMaps}
                   className={styles.location}

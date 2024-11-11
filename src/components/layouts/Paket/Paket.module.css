@@ -10,11 +10,6 @@
     margin-left: 10px;
 }
 
-.Paket li {
-    /* margin-left: 10px; */
-}
-
-/*  */
 
 .fasilWrapper {
     display: flex;
@@ -24,7 +19,6 @@
 }
 
 .fasilitas {
-    /* border: 3px solid #DAE7DF; */
     padding: 15px 30px;
     width: 100%;
     border-radius: 19px;
@@ -40,18 +34,13 @@
     width: 50%;
 }
 
-/*  */
 
 .paketWrapper {
     display: flex;
     width:100%;
     gap: 10px;
-    /* flex-direction: column;
-    width: 100%; */
     flex-direction: row;
-    /* max-width:870px; */
     flex-wrap: wrap;
-    /* justify-content: center; */
 
 }
 

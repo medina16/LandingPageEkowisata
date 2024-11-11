@@ -3,10 +3,12 @@ import type { AppProps } from "next/app";
 import AppShell from "../components/layouts/AppShell";
 import Head from "next/head";
 
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+            <link rel="canonical" href="https://your-website.com" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
@@ -29,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:url"
           content="https://images.ctfassets.net/4wpmwscnwvd0/YFU9NeL7rDDPWH9diIdY6/7c58545c40e7f99e68a50a47af6a5cf1/DJI_0822.JPG"
         />
-        <meta name="twitter:card" content="Bale Gandrung dan Tatamba, destinasi wisata dengan konsep agroeduwisata." />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <AppShell>
         <Component {...pageProps} />

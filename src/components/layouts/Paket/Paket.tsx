@@ -55,8 +55,8 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   } // Use the selected image
                   className={styles.modalContentImg}
                   alt={getSelectedPaket(pakets).fields.namaPaket}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
 
@@ -166,36 +166,30 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                 />
               </div>
               <button className={styles.closeModal} onClick={toggleModal}>
-                <X style={{stroke: "white"}}/>
+                <X style={{ stroke: "white" }} />
               </button>
             </div>
           </div>
         )}
 
-{pakets.map((item: PaketWisata, index: number) => (
+        {pakets.map((item: PaketWisata, index: number) => (
           <div key={index} className={styles.paketContainer}>
             <div className={styles.imgContainer}>
-               <Image
+              <Image
                 src={"https:" + item.fields.fotoPaket.fields.file.url}
                 className={styles.img}
                 alt={item.fields.namaPaket}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 540px) 60vw, 30vw"
               />
-              
             </div>
-             
-            <div
-             className={styles.contentButtonContainer}
-            >
-              <div >
-                <div style={{ fontWeight: "600" }}>
-                  {item.fields.label}
-                </div>
+
+            <div className={styles.contentButtonContainer}>
+              <div>
+                <div style={{ fontWeight: "600" }}>{item.fields.label}</div>
                 <h3
                   style={{ display: "flex", gap: "8px", lineHeight: "normal" }}
                 >
-                  {/* <div style={{display: "flex"}} className={styles.paketIcon}><Leaf /></div> */}
                   {item.fields.namaPaket}
                 </h3>
                 <p style={{ lineHeight: "20px" }}>
@@ -216,8 +210,6 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
             </div>
           </div>
         ))}
-
-        
       </div>
     </div>
   );

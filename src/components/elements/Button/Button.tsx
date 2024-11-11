@@ -17,17 +17,17 @@ const Button: React.FC<ButtonProps> = ({
     return (
       <div className={styles.Button}>
         {buttontype == "primary" && (
-          <div className={styles.primary}>
-            <a title={buttontext}>
-            {icon == "info" && <i className="fa fa-info-circle" aria-hidden="true"></i>}
-                {buttontext}</a>
+          <div className={styles.primary} >
+            
+            
+            <p>{icon == "info" && <i className="fa fa-info-circle" aria-hidden="true"></i>}{buttontext}</p>
           </div>
         )}
         {buttontype == "secondary" && (
           <div className={styles.secondary}>
-            <a title={buttontext}>
-              {buttontext}
-            </a>
+    <p>{buttontext}</p>
+              
+      
           </div>
         )}
       </div>

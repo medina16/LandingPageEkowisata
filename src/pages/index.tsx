@@ -4,11 +4,16 @@ import Info from "../components/layouts/Info/Info";
 import Galeri from "../components/elements/Galeri/Galeri";
 import Paket from "../components/layouts/Paket/Paket";
 import { createClient } from "contentful";
-import { Slider, FAQ, PaketWisata, Testimoni as TestiContent, FotoGaleri, InfoWisata } from '../../content_types';
+import {
+  Slider,
+  FAQ,
+  PaketWisata,
+  Testimoni as TestiContent,
+  FotoGaleri,
+  InfoWisata,
+} from "../../content_types";
 import Kontak from "@/components/layouts/Kontak/Kontak";
 import Slide from "@/components/elements/Slide/Slide";
-
-
 
 export async function getStaticProps() {
   const client = createClient({
@@ -34,14 +39,26 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ faqs, pakets, testimonis, galeri, infos, slider } : { pakets: PaketWisata[], faqs: FAQ[], testimonis: TestiContent[], galeri: FotoGaleri[], infos: InfoWisata[], slider: Slider }) {
+export default function Home({
+  faqs,
+  pakets,
+  testimonis,
+  galeri,
+  infos,
+  slider,
+}: {
+  pakets: PaketWisata[];
+  faqs: FAQ[];
+  testimonis: TestiContent[];
+  galeri: FotoGaleri[];
+  infos: InfoWisata[];
+  slider: Slider;
+}) {
   return (
-    
     <div className="main-wrapper rubik">
       <header>
-            <Slide slider={slider}/>
-            
-          </header>
+        <Slide slider={slider} />
+      </header>
       {/* <section>Bale Gandrung dan Tatamba adalah dua destinasi wisata</section> */}
       <section id="info">
         <Info infos={infos} />
@@ -142,14 +159,38 @@ export default function Home({ faqs, pakets, testimonis, galeri, infos, slider }
         <FAQItem faqs={faqs} />
       </section>
       <section id="kontak" style={{ paddingBottom: "0" }}>
-        <h2 className="sect-title" style={{ marginBottom:"15px"}}>Masih punya pertanyaan?</h2>
-        <Kontak/>
-
-        <img
-          src="/Vector (6).png"
-          alt="Footer"
-          style={{ width: "100vw", maxHeight: "150px", padding: "0", marginTop: "30px"}}
-        />
+        <h2 className="sect-title" style={{ marginBottom: "15px" }}>
+          Masih punya pertanyaan?
+        </h2>
+        <Kontak />
+        <svg
+        style={{ width: "100vw", maxHeight: "150px", padding: "0", marginTop: "30px"}}
+          width="100vw"
+          height="150"
+          viewBox="0 0 1511 150"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M0 133.889L62.9583 116.037C125.917 98.1852 251.833 62.4815 377.75 66.9444C503.667 71.4074 629.583 116.037 755.5 111.574C881.417 107.111 1007.33 53.5556 1133.25 26.7778C1259.17 0 1385.08 0 1448.04 0H1511V241H1448.04C1385.08 241 1259.17 241 1133.25 241C1007.33 241 881.417 241 755.5 241C629.583 241 503.667 241 377.75 241C251.833 241 125.917 241 62.9583 241H0V133.889Z"
+            fill="url(#paint0_linear_345_7)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_345_7"
+              x1="0"
+              y1="120.5"
+              x2="1511"
+              y2="120.5"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#4BCEA6" />
+              <stop offset="1" stopColor="#A9DD97" />
+            </linearGradient>
+          </defs>
+        </svg>
       </section>
     </div>
   );

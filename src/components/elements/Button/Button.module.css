@@ -1,4 +1,4 @@
-.Button a {
+.Button a, .Button p {
     /* background: rgb(75,206,166); */
     width:100%;
     padding:12px 10px;
@@ -15,7 +15,11 @@
     align-items: center;
 }
 
-.Button a:hover{
+button.Button{
+    all:unset;
+}
+
+.Button a, .Button p:hover{
     scale:107%;
 }
 
@@ -43,19 +47,19 @@
 }
 
 @media only screen and (max-width:762px){
-    .Button a{
+    .Button a, .Button p{
         width:100%;
     }
     .Button{
         width:100%;
     }
-    .Button a{
+    .Button a, .Button p{
         font-size:17px;
     }
 }
 
 @media only screen and (max-width:540px){
-    .Button a{
+    .Button a, .Button p{
         font-size:16px;
     }
 }
