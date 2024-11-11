@@ -5,12 +5,9 @@ import Button from "../Button/Button";
 import Image from "next/image";
 import { Slider } from "../../../../content_types";
 
-
-export default function ImageSlider({slider}: {slider: Slider}) {
+export default function ImageSlider({ slider }: { slider: Slider }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const imageUrls = [
-    ...slider.fields.kumpulanFoto
-  ];
+  const imageUrls = [...slider.fields.kumpulanFoto];
 
   function showNextImage() {
     setImageIndex((index) => {
@@ -31,37 +28,42 @@ export default function ImageSlider({slider}: {slider: Slider}) {
 
   return (
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      
-        <div className={styles.herotext}>
-          <div
-            style={{
-              display: "flex",
-              gap: ".25rem",
-            }}
-          >
-            {imageUrls.map((_, index) => (
-              <button
-                key={index}
-                className={styles.slidedot}
-                onClick={() => setImageIndex(index)}
-              >
-                {index === imageIndex ? (
-                  <CircleDot style={{ stroke: "#72BF82", fill: "#72BF82" }} />
-                ) : (
-                  <Circle style={{ fill: "#F9F9F2" }} />
-                )}
-              </button>
-            ))}
-          </div>
-          <h2>{slider.fields.headline}</h2>
-          <h3>{slider.fields.subtitle}</h3>
-          <div className={styles.buttonWrapper}><Button buttontext="Lihat Paket Wisata" buttonlink="#paket" icon="" buttontype="primary"/></div>
-          
-        </div>
+      <div className={styles.herotext}>
         <div
+          style={{
+            display: "flex",
+            gap: ".25rem",
+          }}
+        >
+          {imageUrls.map((_, index) => (
+            <button
+              key={index}
+              className={styles.slidedot}
+              onClick={() => setImageIndex(index)}
+              style={{ marginBottom: "10px" }}
+            >
+              {index === imageIndex ? (
+                <CircleDot style={{ stroke: "#72BF82", fill: "#72BF82" }} />
+              ) : (
+                <Circle style={{ fill: "#F9F9F2" }} />
+              )}
+            </button>
+          ))}
+        </div>
+        <h2>{slider.fields.headline}</h2>
+        <h3>{slider.fields.subtitle}</h3>
+        <div className={styles.buttonWrapper}>
+          <Button
+            buttontext="Lihat Paket Wisata"
+            buttonlink="#paket"
+            icon=""
+            buttontype="primary"
+          />
+        </div>
+      </div>
+      <div
         style={{
-          background:
-            "#15342a7d",
+          background: "#15342a7d",
           display: "block",
           width: "100%",
           height: "100%",
@@ -78,15 +80,21 @@ export default function ImageSlider({slider}: {slider: Slider}) {
         }}
       >
         {imageUrls.map((foto) => (
-          <Image
-          width={1280}
-          height={720}
-            key={foto.fields.file.url}
-            alt=""
-            src={"http:" + foto.fields.file.url}
-            className={styles.imgslides}
+          <div
+            className={styles.imgContainer}
             style={{ translate: `${-100 * imageIndex}%` }}
-          />
+            key={foto.fields.file.url}
+          >
+            <Image
+              alt={foto.fields.title}
+              fill
+              quality={90}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 90vw"
+              src={"http:" + foto.fields.file.url}
+              className={styles.imgslides}
+              priority
+            />
+          </div>
         ))}
       </div>
     </div>

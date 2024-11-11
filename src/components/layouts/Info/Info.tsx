@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./Info.module.css";
 import { InfoWisata } from "../../../../content_types";
-import { MapPin } from "lucide-react";
+import { MapPin } from "lucide-react"
 
 const Info = ({ infos }: { infos: InfoWisata[] }) => {
   return (
@@ -27,13 +27,17 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
               <MapPin style={{ height: "17px", strokeWidth: "2.5px" }} /> Desa Guci, Tegal, Jawa Tengah
             </a> */}
           <div className={styles.contentWrapper}>
+            <div className={styles.imgContainer}>
             <Image
               src={"http:" + item.fields.foto.fields.file.url}
-              width={1120}
-              height={540}
+              alt={item.fields.nama}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={styles.img}
-              alt=""
+
             />
+            </div>
+            
             <div className={styles.innerWrapper}>
               <div className={styles.tes3}>
                 <h3>{item.fields.nama}</h3>

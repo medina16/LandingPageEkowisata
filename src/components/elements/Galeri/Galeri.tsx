@@ -58,13 +58,13 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
 
   function showNext() {
     setSlideIndex((index) => {
-      if (slideIndex === groupedImg.length/6) return 0;
+      if (slideIndex === groupedImg.length / 6) return 0;
       return index + 1;
     });
   }
   function showPrev() {
     setSlideIndex((index) => {
-      if (slideIndex === 0) return groupedImg.length/6;
+      if (slideIndex === 0) return groupedImg.length / 6;
       return index - 1;
     });
   }
@@ -122,7 +122,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
               className={styles.groupTesti}
               style={
                 responsiveWidth > 1190
-                  ? { width: "calc(100%/3)" }
+                  ? { maxWidth: "calc(100%/3)", width: "100%" }
                   : { width: "100%" }
               }
             >
@@ -137,13 +137,15 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                     className={styles.img}
                     style={{ backgroundColor: "#72BF82" }}
                   >
-                    <Image
-                      src={"http:" + item.fields.foto.fields.file.url}
-                      width={560}
-                      height={270}
-                      alt={item.fields.judul}
-                      className={styles.img}
-                    />
+                    <div className={styles.imgContainer}>
+                      <Image
+                        src={"http:" + item.fields.foto.fields.file.url}
+                        alt={item.fields.judul}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className={styles.img}
+                      />
+                    </div>
                   </div>
                   {item.fields.label ? (
                     <div className={styles.imgLabel}>{item.fields.label}</div>
@@ -167,14 +169,15 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
         <div className={styles.modal}>
           <div className={styles.overlay} onClick={toggleModal}></div>
           <div className={styles.modalContent}>
-            <div className={styles.imageContainer}>
+            <div className={styles.imgContainer}>
               <Image
                 src={
-                  "http:" + getSelectedImage(galeri)?.fields.foto.fields.file.url
+                  "http:" +
+                  getSelectedImage(galeri)?.fields.foto.fields.file.url
                 }
-                height={720}
-                width={1280}
-                alt=""
+                alt={getSelectedImage(galeri)?.fields.judul || ""}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={styles.modalContentImg}
               />
             </div>

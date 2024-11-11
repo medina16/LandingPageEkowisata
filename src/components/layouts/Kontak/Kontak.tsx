@@ -49,7 +49,7 @@ const Kontak = () => {
               borderRadius:"50%"
              }}>
               <Image
-            alt=""
+            alt="Logo Tatamba"
             width={120}
             height={120}
               src="/Tatamba.jpg"

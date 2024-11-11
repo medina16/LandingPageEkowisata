@@ -147,7 +147,7 @@ export default function Home({ faqs, pakets, testimonis, galeri, infos, slider }
 
         <img
           src="/Vector (6).png"
-          alt=""
+          alt="Footer"
           style={{ width: "100vw", maxHeight: "150px", padding: "0", marginTop: "30px"}}
         />
       </section>

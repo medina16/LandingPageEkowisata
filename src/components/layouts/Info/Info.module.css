@@ -1,9 +1,18 @@
 .img {
     object-fit: cover;
-    max-width: 250px;
-    height: inherit;
+    
     border-radius: 15px;
 }
+
+.imgContainer {
+    position: relative;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Adjust based on desired aspect ratio */
+    background-color: #72BF82;
+    border-radius:15px;
+    min-width: 250px;
+    height: inherit;
+  }
 
 .Info {
     display: flex;
@@ -114,7 +123,7 @@
         padding-top: 20px;
     }
 
-    .img {
+    .imgContainer {
         max-height: 225px;
     }
 
@@ -157,7 +166,7 @@
     }
 }
 
-@media only screen and (min-width: 571px) and (max-width: 1020px) {
+@media only screen and (min-width: 571px) and (max-width: 1023px) {
     .Info p {
         max-width: 100%;
     }

@@ -1,8 +1,5 @@
 .img {
     object-fit: cover;
-    /* max-width: 318px; */
-    width: 100%;
-    max-height: 190px;
     border-radius: 15px 15px 0 0;
     transition: 0.2s ease-in-out;
 }
@@ -47,9 +44,10 @@
 .imgLabel {
     position: relative;
     background-color: #F9F9F2;
-    padding: 2px 15px;
+    padding: 6px 15px;
     font-size: 13px;
-    z-index: 30;
+    font-weight: 500;
+    /* z-index: 30; */
     /* margin-top: 150px; */
     border-radius: 0 0 15px 15px;
     /* width: 100%; */
@@ -110,7 +108,7 @@
 .modalContentImg {
     max-width: 100%;
     height: auto;
-    border-radius: 20px 20px 0 0;
+    border-radius: 15px 15px 0 0;
     display: flex;
 
 }
@@ -150,6 +148,19 @@
     align-items: center;
 }
 
+.imgContainer {
+    position: relative;
+    width: 100%; /* Full width */
+    height: auto;
+    aspect-ratio: 16 / 9; /* Adjust based on desired aspect ratio */
+    background-color: #72BF82;
+    border-radius:15px 15px 0 0;
+  }
+  
+  .img {
+    object-fit: cover; /* Adjust as needed, e.g., cover or contain */
+  }
+
 
 @media only screen and (max-width:1190px) {
     .itemTesti {
@@ -157,9 +168,6 @@
 
     }
 
-    .modalContent {
-        margin: auto 30px;
-    }
 
     .nextprevWrapper {
         display: none;
@@ -193,6 +201,12 @@
     }
 }
 
+@media only screen and (max-width:680px) {
+    .modalContent {
+        margin: auto 20px;
+    }
+
+}
 
 
 @media only screen and (max-width:540px) {
@@ -205,7 +219,6 @@
     .imgLabel {
         /* margin-top: 220px; */
         font-size: 15px;
-        width: max-content;
     }
 
     .itemTesti {

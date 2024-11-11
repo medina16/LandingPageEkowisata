@@ -53,10 +53,10 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                     "https:" +
                     getSelectedPaket(pakets).fields.fotoPaket.fields.file.url
                   } // Use the selected image
-                  height={720}
-                  width={1280}
-                  alt=""
                   className={styles.modalContentImg}
+                  alt={getSelectedPaket(pakets).fields.namaPaket}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
 
@@ -174,13 +174,17 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
 
 {pakets.map((item: PaketWisata, index: number) => (
           <div key={index} className={styles.paketContainer}>
-              <Image
+            <div className={styles.imgContainer}>
+               <Image
                 src={"https:" + item.fields.fotoPaket.fields.file.url}
-                width={1080}
-                height={720}
                 className={styles.img}
-                alt=""
+                alt={item.fields.namaPaket}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
+              
+            </div>
+             
             <div
              className={styles.contentButtonContainer}
             >

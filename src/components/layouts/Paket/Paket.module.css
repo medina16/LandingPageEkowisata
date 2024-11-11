@@ -44,6 +44,7 @@
 
 .paketWrapper {
     display: flex;
+    width:100%;
     gap: 10px;
     /* flex-direction: column;
     width: 100%; */
@@ -138,11 +139,20 @@
     display: block;
 }
 
+.imgContainer {
+    position: relative;
+    width: 100%; /* Full width */
+    height: inherit;
+    aspect-ratio: 16 / 9; /* Adjust based on desired aspect ratio */
+    background-color: #72BF82;
+    border-radius:15px;
+  }
+
 .imageContainer {
     background-color: #72BF82;
     width: 100%;
     /* border-radius: 20px 0 0 20px ; */
-
+    position: relative;
     border-radius: 15px 15px 0 0;
     height: 200px;
 }
@@ -206,12 +216,8 @@
 }
 
 .modalContentImg {
-    max-width: 100%;
     object-fit: cover;
-    max-height: 200px;
     border-radius: 15px 15px 0 0;
-    display: flex;
-
 }
 
 @media only screen and (max-width: 762px) {
