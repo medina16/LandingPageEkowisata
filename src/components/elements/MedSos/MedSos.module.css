@@ -8,7 +8,8 @@
 
 
 .scrollUp,
-.sosmed {
+.sosmed, 
+.kontak {
     width: fit-content;
     padding: 12px 12px;
     justify-content: center;
@@ -29,7 +30,7 @@
     text-align: center;
 }
 
-.sosmed {
+.sosmed, .kontak {
     background-color: #354C3F;
     transition: 0.2s ease-in-out;
     padding: 12px 12px;
@@ -42,8 +43,12 @@
     padding: 12px 12px;
 }
 
+.kontak{
+    display: none;
+}
 
-.sosmed:hover {
+
+.sosmed:hover, .kontak:hover {
     background-color: #72BF82;
     color: #F9F9F2;
     padding: 12px 12px;
@@ -52,4 +57,13 @@
 .scrollUp:hover {
     background-color: #354C3F;
     padding: 12px 12px;
+}
+
+@media only screen and (max-width:540px){
+    .sosmed{
+        display: none;
+    }
+    .kontak{
+        display: block;
+    }
 }

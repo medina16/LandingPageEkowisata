@@ -9,12 +9,12 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   const [groupedImg, setGroupedData] = useState<FotoGaleri[][]>([]);
   const [responsiveWidth, setResponsiveWidth] = useState(0);
   const [slideIndex, setSlideIndex] = useState(0);
+
   const [modal, setModal] = useState(false);
   const [selectedImageID, openImage] = useState("");
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // Helper function to group data based on window width
   const groupTestimonials = () => {
     const width = window.innerWidth;
     const slideGroup = [];
@@ -24,8 +24,8 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
         slideGroup.push(galeri.slice(i, i + 2));
       }
     } else if (width > 540) {
-      for (let i = 0; i < galeri.length; i += 4) {
-        slideGroup.push(galeri.slice(i, i + 4));
+      for (let i = 0; i < galeri.length; i += 6) {
+        slideGroup.push(galeri.slice(i, i + 6));
       }
     } else {
       for (let i = 0; i < galeri.length; i++) {
@@ -58,13 +58,13 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
 
   function showNext() {
     setSlideIndex((index) => {
-      if (slideIndex === groupedImg.length / 6) return 0;
+      if (slideIndex >= galeri.length / 6 - 1) return 0;
       return index + 1;
     });
   }
   function showPrev() {
     setSlideIndex((index) => {
-      if (slideIndex === 0) return groupedImg.length / 6;
+      if (slideIndex === 0 || slideIndex>galeri.length / 6 - 1) return galeri.length / 6 - 1;
       return index - 1;
     });
   }
@@ -102,7 +102,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   return (
     <div className={styles.bigTestiWrapper}>
       <div className={styles.nextprevWrapper}>
-        <button style={{ all: "unset" }} onClick={showPrev}>
+        <button style={{ all: "unset" }} aria-label="Previous" onClick={showPrev}>
           <NextPrev direction={false}></NextPrev>
         </button>
       </div>
@@ -138,20 +138,21 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
                     style={{ backgroundColor: "#72BF82" }}
                   >
                     <div className={styles.imgContainer}>
-                      <Image
-                        src={"http:" + item.fields.foto.fields.file.url}
-                        alt={item.fields.judul}
-                        fill
-                        sizes="(max-width: 540px) 50vw, (max-width: 1190px) 30vw, 15vw"
-                        className={styles.img}
-                      />
-                    </div>
-                  </div>
-                  {item.fields.label ? (
+                    {item.fields.label ? (
                     <div className={styles.imgLabel}>{item.fields.label}</div>
                   ) : (
                     <div></div>
                   )}
+                      <Image
+                        src={"http:" + item.fields.foto.fields.file.url}
+                        alt={item.fields.judul|| "Foto Galeri"}
+                        fill
+                        sizes="(max-width: 450px) 80vw, (max-width: 540px) 60vw, (max-width: 768px) 50vw, 30vw"
+                        className={styles.img}
+                      />
+                    </div>
+                  </div>
+                  
                 </div>
               ))}
             </div>
@@ -160,7 +161,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
       </div>
 
       <div className={styles.nextprevWrapper}>
-        <button style={{ all: "unset" }} onClick={showNext}>
+        <button aria-label="Next" style={{ all: "unset" }} onClick={showNext}>
           <NextPrev direction={true}></NextPrev>
         </button>
       </div>
@@ -169,15 +170,15 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
         <div className={styles.modal}>
           <div className={styles.overlay} onClick={toggleModal}></div>
           <div className={styles.modalContent}>
-            <div className={styles.imgContainer}>
+            <div className={styles.imgContainerModal}>
               <Image
                 src={
                   "http:" +
                   getSelectedImage(galeri)?.fields.foto.fields.file.url
                 }
-                alt={getSelectedImage(galeri)?.fields.judul || ""}
+                alt={getSelectedImage(galeri)?.fields.judul || "Foto Galeri"}
                 fill
-                sizes="(max-width: 680px) 10vw, 25vw"
+                sizes="(max-width: 680px) 80vw, 50vw"
                 className={styles.modalContentImg}
               />
             </div>
@@ -185,7 +186,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
               <h4>{getSelectedImage(galeri)?.fields.judul}</h4>
               <p>{getSelectedImage(galeri)?.fields.deskripsi}</p>
             </div>
-            <button className={styles.closeModal} onClick={toggleModal}>
+            <button aria-label="Tutup" className={styles.closeModal} onClick={toggleModal}>
               <X style={{ stroke: "white" }} />
             </button>
           </div>
@@ -198,6 +199,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
             key={index}
             className={styles.slidedot}
             onClick={() => scrollToIndex(index)}
+            aria-label={"Slide " + (index+1)}
           >
             {index === slideIndex ? (
               <CircleDot style={{ stroke: "#72BF82", fill: "#72BF82" }} />

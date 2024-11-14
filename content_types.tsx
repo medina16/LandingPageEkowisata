@@ -8,7 +8,7 @@ interface ContentfulLink {
 
 interface FAQFields {
   pertanyaan: string;
-  jawaban: string;
+  jawab: ContentfulDocument;
   index: number;
 }
 
@@ -113,6 +113,7 @@ interface ContentfulLink {
   interface TestimoniFields {
     nama: string;
     isiTestimoni: string;
+    tempat:string;
   }
   
   export interface Testimoni {
@@ -187,6 +188,7 @@ interface ContentfulLink {
     daftarFasilitas: string[];
     linkReservasiWa: string;
     linkInstagram: string;
+    linkFacebook:string;
     fotoPaket: ContentfulAsset;
     aktivitas: string;
     deskripsiSingkat: string;

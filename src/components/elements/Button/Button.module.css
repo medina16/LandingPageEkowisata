@@ -1,7 +1,7 @@
 .Button a, .Button p {
     /* background: rgb(75,206,166); */
     width:100%;
-    padding:12px 10px;
+    padding:12px 20px;
     display:flex;
     justify-content: center;
     font-weight: 700;
@@ -17,10 +17,13 @@
 
 button.Button{
     all:unset;
+    
 }
 
-.Button a, .Button p:hover{
+.Button a:hover, .Button p:hover{
     scale:107%;
+    border:none;
+
 }
 
 .primary{
@@ -28,6 +31,7 @@ button.Button{
     background-color:#A9DD97;
     border-radius: 30px;
     transition: 0.5s ease-in-out;
+    border:none;
 }
 
 .primary:hover{
@@ -47,7 +51,7 @@ button.Button{
 }
 
 @media only screen and (max-width:762px){
-    .Button a, .Button p{
+    .Button a, .Button p, .Button button{
         width:100%;
     }
     .Button{

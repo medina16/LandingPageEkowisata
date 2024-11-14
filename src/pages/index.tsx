@@ -164,9 +164,14 @@ export default function Home({
         </h2>
         <Kontak />
         <svg
-        style={{ width: "100vw", maxHeight: "150px", padding: "0", marginTop: "30px"}}
-          width="100vw"
-          height="150"
+          style={{
+            width:"1200px",
+            minWidth: "100vw",
+            height: "auto",
+            maxHeight: "200px",
+            padding: "0",
+
+          }}
           viewBox="0 0 1511 150"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

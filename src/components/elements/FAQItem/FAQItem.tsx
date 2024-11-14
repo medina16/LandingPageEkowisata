@@ -2,16 +2,18 @@ import styles from "./FAQItem.module.css";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { FAQ } from "../../../../content_types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { INLINES, Node } from "@contentful/rich-text-types";
+import { ReactNode } from "react";
 
 const FAQItem = ({ faqs }: { faqs: FAQ[] }) => {
   const [askOpen, setAskOpen] = useState(Array(faqs.length).fill(false));
 
   const handleClick = (index: number) => {
-    const newAskOpen = [...askOpen]; // create a shallow copy of the askOpen array
-    newAskOpen[index] = !newAskOpen[index]; // toggle the selected item
-    setAskOpen(newAskOpen); // set the new array as the state
+    const newAskOpen = [...askOpen]; 
+    newAskOpen[index] = !newAskOpen[index]; 
+    setAskOpen(newAskOpen);
   };
-  
 
   function compare(a: FAQ, b: FAQ) {
     if (a.fields.index < b.fields.index) {
@@ -25,6 +27,26 @@ const FAQItem = ({ faqs }: { faqs: FAQ[] }) => {
 
   faqs.sort(compare);
 
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: (node: Node, children: ReactNode) => {
+        const { uri } = node.data;
+        const linkTitle = `${children || uri}`;
+
+        return (
+          <a
+            href={uri}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={linkTitle}
+          >
+            {children}
+          </a>
+        );
+      },
+    },
+  };
+
   return (
     <div className={styles.FAQItem}>
       {faqs.map((item, index) => (
@@ -33,12 +55,13 @@ const FAQItem = ({ faqs }: { faqs: FAQ[] }) => {
             <div
               className={styles.question}
               style={{
-                borderBottom: askOpen.at(index) == true ? "3px solid #DAE7DF" : "none",
+                borderBottom:
+                  askOpen.at(index) == true ? "3px solid #DAE7DF" : "none",
                 paddingBottom: askOpen.at(index) == true ? "10px" : "0",
               }}
             >
               {item.fields.pertanyaan}
-              { askOpen.at(index) == true ? (
+              {askOpen.at(index) == true ? (
                 <ChevronUp style={{ stroke: "#72BF82", strokeWidth: "3" }} />
               ) : (
                 <ChevronDown style={{ stroke: "#72BF82", strokeWidth: "3" }} />
@@ -53,7 +76,7 @@ const FAQItem = ({ faqs }: { faqs: FAQ[] }) => {
                 overflow: "hidden",
               }}
             >
-              <p>{item.fields.jawaban}</p>
+              {documentToReactComponents(item.fields.jawab, options)}
             </div>
           </button>
         </div>

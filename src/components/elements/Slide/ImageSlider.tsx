@@ -37,6 +37,7 @@ export default function ImageSlider({ slider }: { slider: Slider }) {
         >
           {imageUrls.map((_, index) => (
             <button
+            aria-label={"Slide " + (index+1)}
               key={index}
               className={styles.slidedot}
               onClick={() => setImageIndex(index)}
@@ -88,8 +89,8 @@ export default function ImageSlider({ slider }: { slider: Slider }) {
             <Image
               alt={foto.fields.title}
               fill
-              quality={80}
-              sizes="(max-width: 450px) 60vw, (max-width: 1020px) 50vw, 50vw"
+              // sizes="100vw"
+              sizes="(max-width: 450px) 50vw, (max-width: 1020px) 50vw, 50vw"
               src={"http:" + foto.fields.file.url}
               className={styles.imgslides}
               priority

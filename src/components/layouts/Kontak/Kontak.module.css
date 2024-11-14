@@ -23,7 +23,7 @@
     flex-direction: row;
     gap: 20px;
     align-items: center;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .kontakInfo{
@@ -40,13 +40,49 @@
     gap: 7px;
 }
 
+
+.sosmed {
+    width: fit-content;
+    padding: 12px 12px;
+    justify-content: center;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 24px;
+    margin-right: 8px;
+    color: #F9F9F2;
+    /* line-height: 3px; */
+    align-items: center;
+    display: flex;
+}
+
+.Kontak i {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
+
+.sosmed {
+    background-color: #354C3F;
+    transition: 0.2s ease-in-out;
+    padding: 12px 12px;
+}
+
+
+
+.sosmed:hover {
+    background-color: #72BF82;
+    color: #F9F9F2;
+    padding: 12px 12px;
+}
+
 @media only screen and (max-width:810px){
     .wrapper{
         flex-direction: column;
     }
-    .kontakContainer{
+    /* .kontakContainer{
         width:80%
-    }
+    } */
 }
 
 @media only screen and (max-width:540px){
@@ -54,9 +90,9 @@
         flex-direction: column;
     }
 
-    .kontakContainer{
+    /* .kontakContainer{
         flex-direction: column;
         width:100%;
         text-align: center;
-    }
+    } */
 }

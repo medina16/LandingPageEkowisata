@@ -29,7 +29,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     margin: auto;
     color: #F9F9F2;
     letter-spacing: 1px;
@@ -151,6 +151,6 @@
         width:100%
     }
     .Slide{
-        height:300px;
+        min-height:300px;
     }
 }

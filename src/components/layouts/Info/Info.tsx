@@ -32,7 +32,7 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
                 src={"http:" + item.fields.foto.fields.file.url}
                 alt={item.fields.nama}
                 fill
-                sizes="(max-width: 1023px): 100vw, 10vw"
+                sizes="(max-width: 1023px): 100vw, 80vw"
                 className={styles.img}
               />
             </div>

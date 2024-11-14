@@ -56,7 +56,7 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   className={styles.modalContentImg}
                   alt={getSelectedPaket(pakets).fields.namaPaket}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 70vw, 50vw"
                 />
               </div>
 
@@ -164,6 +164,12 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   buttontext="Kunjungi Instagram"
                   icon="ig"
                 />
+                <Button
+                  buttontype="secondary"
+                  buttonlink={getSelectedPaket(pakets).fields.linkFacebook}
+                  buttontext="Kunjungi Facebook"
+                  icon="fb"
+                />
               </div>
               <button className={styles.closeModal} onClick={toggleModal}>
                 <X style={{ stroke: "white" }} />
@@ -180,7 +186,7 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                 className={styles.img}
                 alt={item.fields.namaPaket}
                 fill
-                sizes="(max-width: 540px) 60vw, 30vw"
+                sizes="(max-width: 450px) 80vw, (max-width: 540px) 60vw, (max-width: 768px) 50vw, 30vw"
               />
             </div>
 
@@ -225,6 +231,7 @@ const notFound: PaketWisata = {
     concepts: [],
   },
   fields: {
+    linkFacebook:"",
     linkInstagram: "",
     label: "",
     kode: -1,

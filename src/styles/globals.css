@@ -34,14 +34,16 @@ body {
 }
 
 a {
-  color: #354C3F;
+  color: #4e8c5a;
   text-decoration: none;
+  font-weight: 500;
 }
 
 a:hover {
   color: #72BF82;
   transition: 0.5s;
-  padding-bottom:5px;
+  border-bottom:#72BF82 2px solid;;
+ 
 }
 
 section {

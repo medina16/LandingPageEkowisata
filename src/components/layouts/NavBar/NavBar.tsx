@@ -7,7 +7,7 @@ const NavBar = () => {
 
   return (
     <div className={styles.NavBar}>
-      <h1> Guci-Gambuhan Agroedutourism</h1>
+      <h1> Tatambale Agroedutourism</h1>
       <div style={{ display: "flex" }}>
         <div className={styles.navicon} onClick={() => NavListOpen(!navOpen)}>
           {navOpen ?  <X /> : <AlignJustify style={{stroke:"white"}}/>}
