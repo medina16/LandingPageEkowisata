@@ -164,12 +164,13 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   buttontext="Kunjungi Instagram"
                   icon="ig"
                 />
-                <Button
+                {(getSelectedPaket(pakets).fields.linkFacebook)?<Button
                   buttontype="secondary"
                   buttonlink={getSelectedPaket(pakets).fields.linkFacebook}
                   buttontext="Kunjungi Facebook"
                   icon="fb"
-                />
+                /> : undefined}
+                
               </div>
               <button className={styles.closeModal} onClick={toggleModal}>
                 <X style={{ stroke: "white" }} />

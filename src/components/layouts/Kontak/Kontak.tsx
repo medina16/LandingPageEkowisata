@@ -29,39 +29,24 @@ const Kontak = () => {
           <div className={styles.kontakInfo}>
             <h3>Bale Gandrung</h3>
             <div className={styles.buttonWrapper}>
-              {/* <Button
-                buttontype="primary"
-                buttontext="WhatsApp"
-                buttonlink="http://wa.me/087848581607"
-                icon="wa"
-              />
-              <Button
-                buttontype="primary"
-                buttontext="Instagram"
-                buttonlink="https://www.instagram.com/wisataalambalegandrung___/"
-                icon="ig"
-              /> */}
-              <div style={{ display:"flex" }}>
+              <div style={{ display: "flex" }}>
                 <a
                   title="Kontak WhatsApp"
                   className={styles.sosmed}
-                  href="#kontak"
+                  href="http://wa.me/087848581607"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <i className="fa fa-whatsapp" aria-hidden="true"></i>
                 </a>
                 <a
                   title="Kontak Instagram"
                   className={styles.sosmed}
-                  href="#kontak"
+                  href="https://www.instagram.com/wisataalambalegandrung___/"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <i className="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a
-                  title="Kontak Facebook"
-                  className={styles.sosmed}
-                  href="#kontak"
-                >
-                  <i className="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
@@ -88,43 +73,31 @@ const Kontak = () => {
           <div className={styles.kontakInfo}>
             <h3>Tatamba</h3>
             <div className={styles.buttonWrapper}>
-              {/* <Button
-                buttontype="primary"
-                buttontext="WhatsApp"
-                buttonlink="http://wa.me/085801020424"
-                icon="wa"
-              />
-              <Button
-                buttontype="primary"
-                buttontext="Instagram"
-                buttonlink="https://www.instagram.com/jeep_tatamba"
-                icon="ig"
-              />
-              <Button
-                buttontype="primary"
-                buttontext="Facebook"
-                buttonlink="https://www.facebook.com/profile.php?id=61550334179192"
-                icon="fb"
-              /> */}
-              <div style={{ display:"flex" }}>
+              <div style={{ display: "flex" }}>
                 <a
                   title="Kontak WhatsApp"
                   className={styles.sosmed}
-                  href="#kontak"
+                  href="http://wa.me/085801020424"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <i className="fa fa-whatsapp" aria-hidden="true"></i>
                 </a>
                 <a
                   title="Kontak Instagram"
                   className={styles.sosmed}
-                  href="#kontak"
+                  href="https://www.instagram.com/jeep_tatamba"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <i className="fa fa-instagram" aria-hidden="true"></i>
                 </a>
                 <a
                   title="Kontak Facebook"
                   className={styles.sosmed}
-                  href="#kontak"
+                  href="https://www.facebook.com/profile.php?id=61550334179192"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <i className="fa fa-facebook" aria-hidden="true"></i>
                 </a>

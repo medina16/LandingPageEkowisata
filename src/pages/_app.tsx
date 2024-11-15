@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Tatambale Agroedutourism - Wisata Alam Seru & Edukatif</title>
         <meta
           name="description"
-          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet, Jawa Tengah."
+          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet."
         />
 
         <meta property="og:type" content="website" />
@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property="og:description"
-          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet, Jawa Tengah."
+          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet."
         />
         <meta
           property="og:image"
@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property="twitter:description"
-          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet, Jawa Tengah."
+          content="Temukan pengalaman wisata yang edukatif dan penuh petualangan di Bale Gandrung dan Tatamba,  destinasi wisata agroeduwisata di kawasan Gunung Slamet."
         />
         <meta
           property="twitter:image"

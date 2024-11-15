@@ -42,7 +42,7 @@ a {
 a:hover {
   color: #72BF82;
   transition: 0.5s;
-  border-bottom:#72BF82 2px solid;;
+  /* border-bottom:#72BF82 2px solid;; */
  
 }
 
