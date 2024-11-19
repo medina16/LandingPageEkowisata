@@ -2,8 +2,23 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import AppShell from "../components/layouts/AppShell";
 import Head from "next/head";
+import Script from "next/script";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import * as ga from "../lib/google-analytics";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      ga.pageView(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+  
   return (
     <>
       <Head>
@@ -48,6 +63,19 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://images.ctfassets.net/4wpmwscnwvd0/bytO75UvT8TUu24gTS5HQ/35201c83e922123d8faab284f3e792d1/_DSC9177.jpg"
         />
       </Head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics-script" strategy="afterInteractive">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
+        `}
+      </Script>
       <AppShell>
         <Component {...pageProps} />
       </AppShell>
