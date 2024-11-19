@@ -62,7 +62,7 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
 
               <div
                 style={{
-                  padding: "  10px 20px",
+                  padding: "15px 25px",
                   maxHeight: "36vh",
                   overflowY: "scroll",
                   display: "flex",
@@ -70,9 +70,12 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   gap: "10px",
                 }}
               >
-                <h4 style={{ fontSize: "23px" }}>
+                <h4 style={{ fontSize: "18px" }}>
                   {getSelectedPaket(pakets).fields.namaPaket}
                 </h4>
+                <b style={{ fontSize: "25px" }}>
+                  {getSelectedPaket(pakets).fields.harga}
+                </b>
                 {/* <p>{getSelectedPaket(pakets)?.fields.daftarFasilitas}</p> */}
                 <div className={styles.aktiFasilWrapper}>
                   <div className={styles.aktivitasList}>
@@ -152,25 +155,42 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                   flexDirection: "column",
                 }}
               >
-                <Button
-                  buttonlink={getSelectedPaket(pakets).fields.linkReservasiWa}
-                  buttontype="primary"
-                  buttontext="Reservasi Sekarang"
-                  icon="wa"
-                />
+                {getSelectedPaket(pakets).fields.linkReservasiWa ? (
+                  <Button
+                    buttonlink={getSelectedPaket(pakets).fields.linkReservasiWa}
+                    buttontype="primary"
+                    buttontext="Reservasi WhatsApp"
+                    icon="wa"
+                  />
+                ) : (
+                  <Button
+                    buttonlink={
+                      "tel:" + getSelectedPaket(pakets).fields.nomorTelepon
+                    }
+                    buttontype="primary"
+                    buttontext={
+                      "Reservasi Telepon (" +
+                      getSelectedPaket(pakets).fields.nomorTelepon +
+                      ")"
+                    }
+                    icon="telp"
+                  />
+                )}
+
                 <Button
                   buttontype="secondary"
                   buttonlink={getSelectedPaket(pakets).fields.linkInstagram}
                   buttontext="Kunjungi Instagram"
                   icon="ig"
                 />
-                {(getSelectedPaket(pakets).fields.linkFacebook)?<Button
-                  buttontype="secondary"
-                  buttonlink={getSelectedPaket(pakets).fields.linkFacebook}
-                  buttontext="Kunjungi Facebook"
-                  icon="fb"
-                /> : undefined}
-                
+                {getSelectedPaket(pakets).fields.linkFacebook ? (
+                  <Button
+                    buttontype="secondary"
+                    buttonlink={getSelectedPaket(pakets).fields.linkFacebook}
+                    buttontext="Kunjungi Facebook"
+                    icon="fb"
+                  />
+                ) : undefined}
               </div>
               <button className={styles.closeModal} onClick={toggleModal}>
                 <X style={{ stroke: "white" }} />
@@ -232,7 +252,9 @@ const notFound: PaketWisata = {
     concepts: [],
   },
   fields: {
-    linkFacebook:"",
+    nomorTelepon: "",
+    harga: "",
+    linkFacebook: "",
     linkInstagram: "",
     label: "",
     kode: -1,

@@ -46,6 +46,9 @@ const Button: React.FC<ButtonProps> = ({
           >
             {icon != "" && (
               <div>
+                {icon == "telp" && (
+                  <i className="fa fa-phone" aria-hidden="true"></i>
+                )}
                 {icon == "wa" && (
                   <i className="fa fa-whatsapp" aria-hidden="true"></i>
                 )}

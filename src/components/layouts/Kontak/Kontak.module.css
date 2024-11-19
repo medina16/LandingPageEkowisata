@@ -1,39 +1,49 @@
-.Kontak{
+.Kontak {
     width: 100%;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
-    gap: 50px;
+    column-gap: 50px;
+    row-gap:30px;
     margin-top: 20px;
     width: 100%;
     align-content: center;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
 
-.logo{
+.logo {
     max-height: 120px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
-.kontakContainer{
+.imgContainer {
+    min-width: 95px;
+    height: 95px;
+    background-color: #72BF82;
+    border-radius: 50%;
+    position: relative
+}
+
+.kontakContainer {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    align-items: center;
-    /* width: 50%; */
+    align-items: flex-start;
+    width: 400px;
 }
 
-.kontakInfo{
+.kontakInfo {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
 }
 
-.buttonWrapper{
+.buttonWrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -43,29 +53,29 @@
 
 .sosmed {
     width: fit-content;
-    padding: 12px 12px;
+    padding: 7px 7px;
     justify-content: center;
     border-radius: 30px;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    font-size: 24px;
+    font-size: 14px;
     margin-right: 8px;
     color: #F9F9F2;
-    /* line-height: 3px; */
     align-items: center;
     display: flex;
 }
 
 .Kontak i {
-    width: 24px;
-    height: 24px;
     text-align: center;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 7%;
+
 }
 
 .sosmed {
     background-color: #354C3F;
     transition: 0.2s ease-in-out;
-    padding: 12px 12px;
 }
 
 
@@ -73,20 +83,23 @@
 .sosmed:hover {
     background-color: #72BF82;
     color: #F9F9F2;
-    padding: 12px 12px;
 }
 
-@media only screen and (max-width:810px){
-    .wrapper{
+@media only screen and (max-width:810px) {
+    .wrapper {
         flex-direction: column;
     }
+    .wrapper{
+        align-items: center;
+    }
+
     /* .kontakContainer{
         width:80%
     } */
 }
 
-@media only screen and (max-width:540px){
-    .wrapper{
+@media only screen and (max-width:540px) {
+    .wrapper {
         flex-direction: column;
     }
 
@@ -95,4 +108,14 @@
         width:100%;
         text-align: center;
     } */
+
+}
+
+@media only screen and (max-width:400px) {
+    .kontakContainer{
+        flex-direction: column;
+    }
+    .kontakContainer{
+        width: 100%;
+     }
 }

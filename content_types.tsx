@@ -195,6 +195,8 @@ interface ContentfulLink {
     daftarAktivitas: string[];
     kode: number;
     label: string;
+    harga:string;
+    nomorTelepon:string;
   }
   
   export interface PaketWisata {

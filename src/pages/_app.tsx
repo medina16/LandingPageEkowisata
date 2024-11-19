@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="canonical" href="https://tatambale.com" />
+        <link rel="canonical" href="https://tatambale.id" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tatambale.com/" />
+        <meta property="og:url" content="https://tatambale.id/" />
         <meta
           property="og:title"
           content="Tatambale Agroedutourism - Wisata Alam Seru & Edukatif"
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://tatambale.com/" />
+        <meta property="twitter:url" content="https://tatambale.id/" />
         <meta
           property="twitter:title"
           content="Tatambale Agroedutourism - Wisata Alam Seru & Edukatif"
