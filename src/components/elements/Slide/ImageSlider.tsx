@@ -90,7 +90,7 @@ export default function ImageSlider({ slider }: { slider: Slider }) {
               alt={foto.fields.title}
               fill
               // sizes="100vw"
-              sizes="(max-width: 450px) 50vw, (max-width: 1020px) 50vw, 50vw"
+              sizes="(max-width: 450px) 70vw, 60vw"
               src={"http:" + foto.fields.file.url}
               className={styles.imgslides}
               priority

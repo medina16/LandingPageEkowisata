@@ -34,6 +34,19 @@ const Button: React.FC<ButtonProps> = ({
       </div>
     );
   }
+
+  let text, phone;
+
+  if (icon == "telp") {
+    const tokens = buttontext.split("/");
+     text = tokens[0];
+     phone = tokens[1];
+  }
+  else{
+    text = "";
+     phone = "";
+  }
+
   return (
     <div className={styles.Button}>
       {buttontype == "primary" && (
@@ -60,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
                 )}
               </div>
             )}
-            {buttontext}
+            {icon == "telp" ? <div style={{lineHeight:"18px", display: "flex", flexDirection: "column" }}>{text} <span style={{ fontSize: "12px" }}>{phone}</span></div>  : buttontext}
           </a>
         </div>
       )}

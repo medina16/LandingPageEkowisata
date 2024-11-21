@@ -169,7 +169,7 @@ const Paket = ({ pakets }: { pakets: PaketWisata[] }) => {
                     }
                     buttontype="primary"
                     buttontext={
-                      "Reservasi Telepon (" +
+                      "Reservasi Telepon/(" +
                       getSelectedPaket(pakets).fields.nomorTelepon +
                       ")"
                     }

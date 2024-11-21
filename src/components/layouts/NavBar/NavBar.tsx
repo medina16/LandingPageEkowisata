@@ -15,6 +15,7 @@ const NavBar = () => {
         <div className={styles.navlink}>
           <nav>
             <a title="Paket Wisata" href="#paket">Paket Wisata</a>
+            <a title="Reservasi & Layanan" href="#reservasi">Reservasi & Layanan</a>
             <a title="Galeri" href="#galeri">Galeri</a>
             <a title="Testimoni" href="#testi">Testimoni</a>
             <a title="FAQ" href="#faq">FAQ</a>
@@ -28,6 +29,12 @@ const NavBar = () => {
                 <div className={styles.navlinkContainer}>
                   <a title="Paket Wisata" href="#paket" onClick={() => NavListOpen(!navOpen)}>
                     Paket Wisata
+                  </a>
+                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                </div>
+                <div className={styles.navlinkContainer}>
+                  <a title="Paket Wisata" href="#reservasi" onClick={() => NavListOpen(!navOpen)}>
+                  Reservasi & Layanan
                   </a>
                   <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
                 </div>

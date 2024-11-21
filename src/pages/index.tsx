@@ -3,6 +3,9 @@ import Testimoni from "../components/elements/Testimoni/Testimoni";
 import Info from "../components/layouts/Info/Info";
 import Galeri from "../components/elements/Galeri/Galeri";
 import Paket from "../components/layouts/Paket/Paket";
+import ResService from "@/components/layouts/ResService/ResService";
+import Kontak from "@/components/layouts/Kontak/Kontak";
+import Slide from "@/components/elements/Slide/Slide";
 import { createClient } from "contentful";
 import {
   Slider,
@@ -11,9 +14,10 @@ import {
   Testimoni as TestiContent,
   FotoGaleri,
   InfoWisata,
+  ResService as ResServiceContent,
 } from "../../content_types";
-import Kontak from "@/components/layouts/Kontak/Kontak";
-import Slide from "@/components/elements/Slide/Slide";
+
+
 
 export async function getStaticProps() {
   const client = createClient({
@@ -26,6 +30,7 @@ export async function getStaticProps() {
   const resGaleri = await client.getEntries({ content_type: "fotoGaleri" });
   const resInfos = await client.getEntries({ content_type: "infoWisata" });
   const resSlider = await client.getEntries({ content_type: "carousel" });
+  const resResService = await client.getEntries({ content_type: "resService" });
 
   return {
     props: {
@@ -35,6 +40,7 @@ export async function getStaticProps() {
       galeri: resGaleri.items,
       infos: resInfos.items,
       slider: resSlider.items.at(0),
+      resservices: resResService.items,
     },
   };
 }
@@ -46,6 +52,7 @@ export default function Home({
   galeri,
   infos,
   slider,
+  resservices
 }: {
   pakets: PaketWisata[];
   faqs: FAQ[];
@@ -53,6 +60,7 @@ export default function Home({
   galeri: FotoGaleri[];
   infos: InfoWisata[];
   slider: Slider;
+  resservices: ResServiceContent[]
 }) {
   return (
     <div className="main-wrapper rubik">
@@ -145,7 +153,10 @@ export default function Home({
         <h2 className="sect-title">Paket Wisata</h2>
         <Paket pakets={pakets} />
       </section>
-
+      <section id="reservasi">
+        <h2 className="sect-title">Reservasi Venue & Layanan Lainnya</h2>
+        <ResService resservices={resservices} />
+      </section>
       <section id="galeri">
         <h2 className="sect-title">Galeri</h2>
         <Galeri galeri={galeri} />

@@ -361,3 +361,31 @@ interface ContentfulLink {
     };
     fields: SliderFields;
   }
+
+  interface ResServiceFields {
+    jenisReservasilayanan: string;
+    deskripsiSingkat: string;
+    keterangan: ContentfulDocument;
+    foto: ContentfulAsset
+
+  }
+  
+  export interface ResService {
+    metadata: {
+      tags: string[];
+      concepts: unknown[];
+    };
+    sys: {
+      space: ContentfulLink;
+      id: string;
+      type: "Entry";
+      createdAt: string;
+      updatedAt: string;
+      environment: ContentfulLink;
+      publishedVersion: number;
+      revision: number;
+      contentType: ContentfulLink;
+      locale: string;
+    };
+    fields: ResServiceFields;
+  }

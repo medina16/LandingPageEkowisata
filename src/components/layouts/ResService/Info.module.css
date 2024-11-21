@@ -1,0 +1,44 @@
+.ResService {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%
+}
+
+.serviceBlock {
+    background-color: #f8f7ee;
+    padding: 15px 25px;
+    border-radius: 15px;
+    width: 100%;
+    transition: 0.2s ease-in-out;
+    border: 3px solid #dee9db;
+
+}
+
+.ResService button {
+    all: unset;
+    width: 100%;
+}
+
+
+.ResService th,
+.ResService td {
+    background-color:  #cbdbc6;
+}
+
+.ResService td {
+    width: 50%;
+    padding: 2px 8px;
+}
+
+.serviceBlock:hover {
+    color: #354C3F;
+    border: 3px solid #72BF82;
+}
+
+.ResService table {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    /* border-collapse: collapse; */
+}

@@ -8,10 +8,10 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
     <div className={styles.Info}>
       <div>
         <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
-          Yuk, wisata ke Bale Gandrung dan Tatamba!
+          Yuk, wisata ke Tatamba dan Bale Gandrung!
         </h2>
         <p>
-          Bale Gandrung dan Tatamba merupakan tempat yang cocok untuk
+          Tatamba dan Bale Gandrung merupakan tempat yang cocok untuk
           menghabiskan hari dengan aktivitas outdoor sambil memanjakan mata
           dengan keindahan alam autentik. Dengan konsep <b>agroeduwisata</b>,
           kedua destinasi wisata di kawasan Gunung Slamet, Jawa Tengah ini tidak
