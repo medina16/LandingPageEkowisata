@@ -13,6 +13,7 @@
     width: 100%;
     transition: 0.2s ease-in-out;
     border: 3px solid #dee9db;
+    transition: 0.2s ease-in-out;
 
 }
 
@@ -35,10 +36,18 @@
 .serviceBlock:hover {
     color: #354C3F;
     border: 3px solid #72BF82;
+    cursor:pointer;
 }
 
 .ResService table {
     width: 100%;
     margin: 0 auto 10px auto;
     /* border-collapse: collapse; */
+}
+
+.detail{
+    transition: 0.2s ease-in-out;
+}
+.overview{
+    transition: 0.2s ease-in-out;
 }

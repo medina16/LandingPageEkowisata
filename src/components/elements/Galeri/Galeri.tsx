@@ -15,7 +15,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const groupTestimonials = () => {
+  const groupGallery = () => {
     const width = window.innerWidth;
     const slideGroup = [];
 
@@ -70,10 +70,10 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   }
 
   useEffect(() => {
-    groupTestimonials();
+    groupGallery();
 
     // Resize event listener
-    const handleResize = () => groupTestimonials();
+    const handleResize = () => groupGallery();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -100,7 +100,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
   }
 
   return (
-    <div className={styles.bigTestiWrapper}>
+    <div className={styles.bigGallWrapper}>
       <div className={styles.nextprevWrapper}>
         <button style={{ all: "unset" }} aria-label="Previous" onClick={showPrev}>
           <NextPrev direction={false}></NextPrev>
@@ -119,7 +119,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
           {groupedImg.map((group, groupIndex) => (
             <div
               key={groupIndex}
-              className={styles.groupTesti}
+              className={styles.groupGall}
               style={
                 responsiveWidth > 1190
                   ? { maxWidth: "calc(100%/3)", width: "100%" }
@@ -129,7 +129,7 @@ const Galeri = ({ galeri }: { galeri: FotoGaleri[] }) => {
               {group.map((item, index) => (
                 <div
                   key={index}
-                  className={styles.itemTesti}
+                  className={styles.itemGall}
                   onClick={() => imageModal(item.sys.id)}
                   style={{ cursor: "pointer" }}
                 >

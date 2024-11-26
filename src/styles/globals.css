@@ -10,6 +10,18 @@
   
 }
 
+.preview-banner{
+  z-index: 300;
+    position: fixed;
+    bottom: 0;
+    background: black;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    opacity: 50%;
+}
+
 .rubik h2{
   line-height: 36px;
 }

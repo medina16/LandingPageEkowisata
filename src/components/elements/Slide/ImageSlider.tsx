@@ -37,7 +37,7 @@ export default function ImageSlider({ slider }: { slider: Slider }) {
         >
           {imageUrls.map((_, index) => (
             <button
-            aria-label={"Slide " + (index+1)}
+              aria-label={"Slide " + (index + 1)}
               key={index}
               className={styles.slidedot}
               onClick={() => setImageIndex(index)}
@@ -61,6 +61,9 @@ export default function ImageSlider({ slider }: { slider: Slider }) {
             buttontype="primary"
           />
         </div>
+
+   
+  
       </div>
       <div
         style={{

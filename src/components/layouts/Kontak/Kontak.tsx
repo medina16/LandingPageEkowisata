@@ -32,20 +32,20 @@ const Kontak = () => {
                   </span>
                   
                   <a
-                    title="Kontak Telepon"
+                    title="Kontak Telepon Bale Gandrung"
                     href="tel:+62-878-4858-1607"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    +62-878-4858-1607 (telp.)
-                  </a>
+                    +62-878-4858-1607  
+                  </a> <span style={{marginLeft:"3px", fontWeight:"500"  }}>(telp.)</span>
                 </div>
                 <div style={{ display: "flex" }}>
                   <span className={styles.sosmed}>
                     <i className="fa fa-instagram" aria-hidden="true"></i>
                   </span>
                   <a
-                    title="Kontak Instagram"
+                    title="Kontak Instagram Bale Gandrung"
                     href="https://www.instagram.com/wisataalambalegandrung___/"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -80,7 +80,7 @@ const Kontak = () => {
                     <i className="fa fa-whatsapp" aria-hidden="true"></i>
                   </span>
                   <a
-                    title="Kontak WhatsApp"
+                    title="Kontak WhatsApp Tatamba"
                     href="http://wa.me/6285801020424"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -92,7 +92,7 @@ const Kontak = () => {
                   <i className="fa fa-instagram" aria-hidden="true"></i>
                   </span>
                   <a
-                     title="Kontak Instagram"
+                     title="Kontak Instagram Tatamba"
                     href="https://www.instagram.com/jeep_tatamba"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -104,7 +104,7 @@ const Kontak = () => {
                   <i className="fa fa-facebook" aria-hidden="true"></i>
                   </span>
                   <a
-                     title="Kontak Facebook"
+                     title="Kontak Facebook Tatamba"
            
                      href="https://www.facebook.com/profile.php?id=61550334179192"
                      rel="noopener noreferrer"

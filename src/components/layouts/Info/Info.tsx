@@ -6,6 +6,7 @@ import { MapPin } from "lucide-react";
 const Info = ({ infos }: { infos: InfoWisata[] }) => {
   return (
     <div className={styles.Info}>
+      
       <div>
         <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
           Yuk, wisata ke Tatamba dan Bale Gandrung!
@@ -20,6 +21,7 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
           yang menyenangkan.
         </p>
       </div>
+      
 
       {infos?.map((item, index) => (
         <div key={index} className={styles.wrapper}>
@@ -87,6 +89,34 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
           </div>
         </div>
       )) || <div>Data tidak tersedia</div>}
+           <div
+          style={{
+            textAlign: "center",
+            fontWeight: "700",
+            fontSize: "15px",
+            display: "flex",
+            gap: "10px",
+            alignItems: "center",
+            color:"#f8f7ee",
+            padding:"10px 30px",
+            background: "linear-gradient(265.27deg, #0000 12%, #4BCEA6 94.17%)",
+    backgroundColor: "#A9DD97",
+borderRadius:"30px",
+justifyContent: "center",
+flexWrap:"wrap",
+          }}
+        >
+          <span>In partnership with :</span>
+          <div>
+          <span>
+            <img src="cropped-DPMA-logo.png" style={{ height: "40px" }} />
+          </span>
+          <span>
+            <img src="download.svg" style={{ height: "30px" }}/>
+          </span>
+          </div>
+          
+        </div>
     </div>
   );
 };

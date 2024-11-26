@@ -27,9 +27,16 @@ const ResService = ({ resservices }: { resservices: ResServiceContent[] }) => {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
+                // alignItems: "flex-start",
+                // gap:"10px"
               }}
+              className={styles.overview}
             >
-              <h3>{item.fields.jenisReservasilayanan}</h3>
+              <div>
+                <h3>{item.fields.jenisReservasilayanan}</h3>
+                <p>{item.fields.deskripsiSingkat}</p>
+              </div>
+
               {askOpen.at(index) == true ? (
                 <ChevronUp style={{ stroke: "#72BF82", strokeWidth: "3" }} />
               ) : (
@@ -37,15 +44,15 @@ const ResService = ({ resservices }: { resservices: ResServiceContent[] }) => {
               )}
             </div>
 
-            <p>{item.fields.deskripsiSingkat}</p>
             <div
               style={{
                 display: askOpen.at(index) == true ? "block" : "none",
                 maxHeight: askOpen.at(index) == true ? "500px" : "0",
                 transition: "max-height 0.5s ease-in-out",
                 overflow: "hidden",
-                paddingTop:"10px"
+                paddingTop: "10px",
               }}
+              className={styles.detail}
             >
               {documentToReactComponents(item.fields.keterangan)}
             </div>

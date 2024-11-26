@@ -18,7 +18,7 @@
 
 
 
-.groupTesti {
+.groupGall {
     display: flex;
     margin: 0;
     flex-shrink: 0;
@@ -26,14 +26,14 @@
     flex-wrap: wrap;
 }
 
-.itemTesti {
+.itemGall {
     transition: 0.2s ease-in-out;
     width: 100%;
     padding: 5px;
 
 }
 
-.itemTesti:hover {
+.itemGall:hover {
     scale: 101%;
 }
 
@@ -147,7 +147,7 @@
     display: none;
 }
 
-.bigTestiWrapper {
+.bigGallWrapper {
     width: calc(100% + 105px);
     display: flex;
     align-items: center;
@@ -169,7 +169,7 @@
 
 
 @media only screen and (max-width:1190px) {
-    .itemTesti {
+    .itemGall {
         width: calc(100% / 3);
 
     }
@@ -184,7 +184,7 @@
         display: none;
     }
 
-    .bigTestiWrapper {
+    .bigGallWrapper {
         flex-direction: column;
         width: 100%;
     }
@@ -194,7 +194,7 @@
         flex-direction: row;
     }
 
-    .groupTesti {
+    .groupGall {
         scroll-snap-align: start;
     }
 
@@ -207,7 +207,7 @@
 }
 
 @media only screen and (max-width:1190px) {
-    .bigTestiWrapper {
+    .bigGallWrapper {
         width: 100%;
         gap: 10px;
     }
@@ -233,12 +233,12 @@
         font-size: 15px;
     }
 
-    .itemTesti {
+    .itemGall {
         width: 100%;
 
     }
 
-    .groupTesti {
+    .groupGall {
         height: 100%;
         padding: 0 5px;
     }
@@ -247,7 +247,7 @@
         min-width: 100%;
     }
 
-    .itemTesti {
+    .itemGall {
         padding: 0;
     }
 

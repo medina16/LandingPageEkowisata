@@ -78,12 +78,14 @@
     transition: 0.2s ease-in-out;
 }
 
-
-
-.sosmed:hover {
-    background-color: #72BF82;
-    color: #F9F9F2;
+.Kontak a{
+    color:#354C3F;
 }
+
+.Kontak a:hover{
+    color:#72BF82;
+}
+
 
 @media only screen and (max-width:810px) {
     .wrapper {
@@ -114,8 +116,13 @@
 @media only screen and (max-width:400px) {
     .kontakContainer{
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     .kontakContainer{
         width: 100%;
+     }
+     .buttonWrapper{
+        align-items: center;
      }
 }

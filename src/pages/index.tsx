@@ -17,13 +17,15 @@ import {
   ResService as ResServiceContent,
 } from "../../content_types";
 
-
-
-export async function getStaticProps() {
+export async function getStaticProps({ preview = false }) {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID || "",
-    accessToken: process.env.CONTENTFUL_DELIVERY_API_TOKEN || "",
+    accessToken: preview
+      ? process.env.CONTENTFUL_PREVIEW_API_TOKEN || ""
+      : process.env.CONTENTFUL_DELIVERY_API_TOKEN || "",
+    host: preview ? "preview.contentful.com" : "cdn.contentful.com",
   });
+
   const resFAQ = await client.getEntries({ content_type: "faq" });
   const resPakWis = await client.getEntries({ content_type: "paketWisata" });
   const resTesti = await client.getEntries({ content_type: "testimoni" });
@@ -41,9 +43,11 @@ export async function getStaticProps() {
       infos: resInfos.items,
       slider: resSlider.items.at(0),
       resservices: resResService.items,
+      preview,
     },
   };
 }
+
 
 export default function Home({
   faqs,
@@ -52,7 +56,8 @@ export default function Home({
   galeri,
   infos,
   slider,
-  resservices
+  resservices,
+  preview,
 }: {
   pakets: PaketWisata[];
   faqs: FAQ[];
@@ -60,13 +65,17 @@ export default function Home({
   galeri: FotoGaleri[];
   infos: InfoWisata[];
   slider: Slider;
-  resservices: ResServiceContent[]
+  resservices: ResServiceContent[];
+  preview:boolean;
 }) {
   return (
+    
     <div className="main-wrapper rubik">
+      {preview && <div className="preview-banner">Preview Mode</div>}
       <header>
         <Slide slider={slider} />
       </header>
+
       {/* <section>Bale Gandrung dan Tatamba adalah dua destinasi wisata</section> */}
       <section id="info">
         <Info infos={infos} />
@@ -169,19 +178,23 @@ export default function Home({
         <h2 className="sect-title">Pertanyaan yang Sering Diajukan</h2>
         <FAQItem faqs={faqs} />
       </section>
+     
       <section id="kontak" style={{ paddingBottom: "0" }}>
         <h2 className="sect-title" style={{ marginBottom: "15px" }}>
           Masih punya pertanyaan?
         </h2>
         <Kontak />
-        <svg
+        
+        
+      </section>
+      
+      <svg
           style={{
-            width:"1200px",
+            width: "1200px",
             minWidth: "100vw",
             height: "auto",
             maxHeight: "200px",
             padding: "0",
-
           }}
           viewBox="0 0 1511 150"
           fill="none"
@@ -207,7 +220,8 @@ export default function Home({
             </linearGradient>
           </defs>
         </svg>
-      </section>
+      
+      
     </div>
   );
 }
