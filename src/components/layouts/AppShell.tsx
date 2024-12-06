@@ -13,7 +13,7 @@ type AppShellProps = {
   children: React.ReactNode;
 };
 
-const disableNavHeaderMedsos = ["/404"];
+const disableNavHeader = ["/404"];
 
 const AppShell = (props: AppShellProps) => {
   const { children } = props;
@@ -21,14 +21,14 @@ const AppShell = (props: AppShellProps) => {
 
   return (
     <div className={rubik_init.variable}>
-      {!disableNavHeaderMedsos.includes(pathname) && (
+      {!disableNavHeader.includes(pathname) && (
         <div className="rubik">
           <NavBar />
           
           <MedSos />
         </div>
       )}
-      <main>{children}</main>
+      <main style={{ marginTop:"46px" }}>{children}</main>
     </div>
   );
 };

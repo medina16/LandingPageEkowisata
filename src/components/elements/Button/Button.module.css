@@ -52,6 +52,17 @@ button.Button{
     color: #6ccf9c
 }
 
+.tertiary{
+    background-color: #72BF82;
+    color:#F9F9F2;
+    transition: 0.5s ease-in-out;
+    border-radius: 30px;
+}
+
+.tertiary:hover{
+    background-color: #354C3F;
+}
+
 @media only screen and (max-width:762px){
     .Button a, .Button p, .Button button{
         width:100%;

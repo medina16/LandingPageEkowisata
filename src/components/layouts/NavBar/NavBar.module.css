@@ -3,6 +3,8 @@
   background-color: #A9DD97;
   height: 46px;
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -13,6 +15,8 @@
   color: #f8f7ee;
   /* border-bottom: 3px solid #dee9db; */
 }
+
+
 
 .NavBar a {
   color: #ffffff;
@@ -34,7 +38,8 @@
   letter-spacing: 2px;
   font-size: 14px;
   white-space: nowrap;
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  padding: 5px 10px;
 }
 
 .NavBar h1 {
@@ -50,7 +55,36 @@
   display: none;
 }
 
-@media only screen and (max-width:970px) {
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f8f7ee;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdownContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownContent a{
+  color: #354C3F;
+  /* border-top: 3px solid #f8f7ee; */
+  border-bottom: 3px solid #cbdbc6;;
+}
+
+.dropdownContent a:hover{
+  background-color: rgb(193, 211, 190);
+}
+
+
+@media only screen and (max-width:800px) {
 
   .NavBar a:hover {
     scale: 103%

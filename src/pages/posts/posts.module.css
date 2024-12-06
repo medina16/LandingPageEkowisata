@@ -1,0 +1,28 @@
+.postsWrapper{
+    width:100%;
+    display:flex;
+    flex-shrink: 0;
+    gap:20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.singlePost {
+    border-radius: 15px;
+    background-color: #f8f7ee;
+    padding: 20px 30px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+  }
+
+  .imgContainer{
+    position: relative;
+    width: 100%; /* Full width */
+    max-height: 400px;
+
+    aspect-ratio: 16 / 9; /* Adjust based on desired aspect ratio */
+    background-color: #72BF82;
+    border-radius:15px;
+  }

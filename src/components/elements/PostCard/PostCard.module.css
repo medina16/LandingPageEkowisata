@@ -1,0 +1,45 @@
+.PostCard {
+    background-color: #f8f7ee;
+    display: block;
+    width: inherit;
+    border-radius: 15px;
+    transition: 0.2s ease-in-out
+}
+
+.imgContainer {
+    position: relative;
+    width: 100%;
+    /* Full width */
+    height: 250px;
+
+    /* Adjust based on desired aspect ratio */
+    background-color: #72BF82;
+    border-radius: 15px 15px 0 0;
+}
+
+.postInfo {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.PostCard {
+    width: calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.PostCard img {
+    border-radius: 15px 15px 0 0;
+}
+
+.PostCard:hover {
+    transform: scale(102%);
+}
+
+@media only screen and (max-width:550px){
+    .PostCard {
+        width: 100%;
+    }
+}

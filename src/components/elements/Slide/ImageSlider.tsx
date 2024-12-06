@@ -61,9 +61,31 @@ export default function ImageSlider({ slider }: { slider: Slider }) {
             buttontype="primary"
           />
         </div>
-
-   
-  
+        {/* <div
+          style={{
+            fontWeight: "700",
+            fontSize: "15px",
+            display: "flex",
+            flexDirection:"column",
+            gap: "10px",
+            // alignItems: "center",
+            color: "#f8f7ee",
+            padding: "10px 30px",
+            //         background: "linear-gradient(265.27deg, #0000 12%, #4BCEA6 94.17%)",
+            // backgroundColor: "#A9DD97",
+            borderRadius: "30px",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginTop:"60px"
+          }}
+        >
+          <div>In partnership with:</div>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <span>
+              <img src="Group 20 (1).png" style={{ height: "40px" }} />
+            </span>
+          </div>
+        </div> */}
       </div>
       <div
         style={{

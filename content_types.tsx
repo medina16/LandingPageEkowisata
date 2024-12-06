@@ -389,3 +389,32 @@ interface ContentfulLink {
     };
     fields: ResServiceFields;
   }
+
+  interface ArtikelBeritaFields {
+    judul: string;
+    foto: ContentfulAsset;
+    teksArtikel: ContentfulDocument;
+    ikhtisar:string;
+    tanggalPublikasi:string;
+    slug: string;
+  }
+
+  export interface ArtikelBerita {
+    metadata: {
+      tags: string[];
+      concepts: unknown[];
+    };
+    sys: {
+      space: ContentfulLink;
+      id: string;
+      type: "Entry";
+      createdAt: string;
+      updatedAt: string;
+      environment: ContentfulLink;
+      publishedVersion: number;
+      revision: number;
+      contentType: ContentfulLink;
+      locale: string;
+    };
+    fields: ArtikelBeritaFields;
+  }

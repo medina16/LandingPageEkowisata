@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Button.module.css";
 
 interface ButtonProps {
@@ -51,10 +52,10 @@ const Button: React.FC<ButtonProps> = ({
     <div className={styles.Button}>
       {buttontype == "primary" && (
         <div className={styles.primary}>
-          <a
+          <Link
             title={buttontext}
             rel="noopener noreferrer"
-            target={!buttonlink.includes("#") ? "_blank" : ""}
+            target={buttonlink.includes("://") ? "_blank" : ""}
             href={buttonlink}
           >
             {icon != "" && (
@@ -74,15 +75,15 @@ const Button: React.FC<ButtonProps> = ({
               </div>
             )}
             {icon == "telp" ? <div style={{lineHeight:"18px", display: "flex", flexDirection: "column" }}>{text} <span style={{ fontSize: "12px" }}>{phone}</span></div>  : buttontext}
-          </a>
+          </Link>
         </div>
       )}
       {buttontype == "secondary" && (
         <div className={styles.secondary}>
-          <a
+          <Link
             title={buttontext}
             rel="noopener noreferrer"
-            target={!buttonlink.includes("#") ? "_blank" : ""}
+            target={buttonlink.includes("://") ? "_blank" : ""}
             href={buttonlink}
           >
             {icon != "" && (
@@ -99,7 +100,32 @@ const Button: React.FC<ButtonProps> = ({
               </div>
             )}
             {buttontext}
-          </a>
+          </Link>
+        </div>
+      )}
+      {buttontype == "tertiary" && (
+        <div className={styles.tertiary}>
+          <Link
+            title={buttontext}
+            rel="noopener noreferrer"
+            target={buttonlink.includes("://") ? "_blank" : ""}
+            href={buttonlink}
+          >
+            {icon != "" && (
+              <div>
+                {icon == "wa" && (
+                  <i className="fa fa-whatsapp" aria-hidden="true"></i>
+                )}
+                {icon == "ig" && (
+                  <i className="fa fa-instagram" aria-hidden="true"></i>
+                )}
+                {icon == "fb" && (
+                  <i className="fa fa-facebook" aria-hidden="true"></i>
+                )}
+              </div>
+            )}
+            {buttontext}
+          </Link>
         </div>
       )}
     </div>

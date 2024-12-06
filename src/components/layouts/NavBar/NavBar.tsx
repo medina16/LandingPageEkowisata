@@ -1,6 +1,7 @@
 import { AlignJustify, ChevronRight, X } from "lucide-react";
 import styles from "./NavBar.module.css";
 import { useState } from "react";
+import Link from "next/link";
 
 const NavBar = () => {
   const [navOpen, NavListOpen] = useState(false);
@@ -10,16 +11,40 @@ const NavBar = () => {
       <h1> Tatambale Agroedutourism</h1>
       <div style={{ display: "flex" }}>
         <div className={styles.navicon} onClick={() => NavListOpen(!navOpen)}>
-          {navOpen ?  <X /> : <AlignJustify style={{stroke:"white"}}/>}
+          {navOpen ? <X /> : <AlignJustify style={{ stroke: "white" }} />}
         </div>
         <div className={styles.navlink}>
           <nav>
-            <a title="Paket Wisata" href="#paket">Paket Wisata</a>
-            <a title="Reservasi & Layanan" href="#reservasi">Reservasi & Layanan</a>
-            <a title="Galeri" href="#galeri">Galeri</a>
-            <a title="Testimoni" href="#testi">Testimoni</a>
-            <a title="FAQ" href="#faq">FAQ</a>
-            <a title="Kontak" href="#kontak">Kontak</a>
+            <div className={styles.dropdown}>
+              <button style={{ all:"unset" }}>
+                {" "}
+                <Link title="Beranda" href="/#">
+                  Beranda
+                </Link>
+              </button>
+
+              <div className={styles.dropdownContent}>
+                <Link title="Paket Wisata" href="/#paket">
+                  Paket Wisata
+                </Link>
+                <Link title="Reservasi & Layanan" href="/#reservasi">
+                  Reservasi & Layanan
+                </Link>
+                <Link title="Galeri" href="/#galeri">
+                  Galeri
+                </Link>
+                <Link title="Testimoni" href="/#testi">
+                  Testimoni
+                </Link>
+                <Link title="FAQ" href="/#faq">
+                  FAQ
+                </Link>
+              </div>
+            </div>
+            <Link href="/about">Tentang Kami</Link>
+            <Link href="/posts">Berita</Link>
+            
+            {/* <Link title="Kontak" href="/#kontak">Kontak</Link> */}
           </nav>
         </div>
         {navOpen && (
@@ -27,41 +52,91 @@ const NavBar = () => {
             <div className={styles.overlay}>
               <nav>
                 <div className={styles.navlinkContainer}>
-                  <a title="Paket Wisata" href="#paket" onClick={() => NavListOpen(!navOpen)}>
+                  <Link
+                    title="Paket Wisata"
+                    href="/#paket"
+                    onClick={() => NavListOpen(!navOpen)}
+                  >
                     Paket Wisata
-                  </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                  </Link>
+                  <ChevronRight
+                    style={{
+                      stroke: "#72BF82",
+                      strokeWidth: "3",
+                      width: "50px",
+                    }}
+                  />
                 </div>
                 <div className={styles.navlinkContainer}>
-                  <a title="Paket Wisata" href="#reservasi" onClick={() => NavListOpen(!navOpen)}>
-                  Reservasi & Layanan
-                  </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                  <Link
+                    title="Paket Wisata"
+                    href="/#reservasi"
+                    onClick={() => NavListOpen(!navOpen)}
+                  >
+                    Reservasi & Layanan
+                  </Link>
+                  <ChevronRight
+                    style={{
+                      stroke: "#72BF82",
+                      strokeWidth: "3",
+                      width: "50px",
+                    }}
+                  />
                 </div>
                 <div className={styles.navlinkContainer}>
-                  <a title="Galeri" href="#galeri" onClick={() => NavListOpen(!navOpen)}>
+                  <Link
+                    title="Galeri"
+                    href="/#galeri"
+                    onClick={() => NavListOpen(!navOpen)}
+                  >
                     Galeri
-                  </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                  </Link>
+                  <ChevronRight
+                    style={{
+                      stroke: "#72BF82",
+                      strokeWidth: "3",
+                      width: "50px",
+                    }}
+                  />
                 </div>
                 <div className={styles.navlinkContainer}>
-                  <a title="Testimoni" href="#testi" onClick={() => NavListOpen(!navOpen)}>
+                  <Link
+                    title="Testimoni"
+                    href="/#testi"
+                    onClick={() => NavListOpen(!navOpen)}
+                  >
                     Testimoni
-                  </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                  </Link>
+                  <ChevronRight
+                    style={{
+                      stroke: "#72BF82",
+                      strokeWidth: "3",
+                      width: "50px",
+                    }}
+                  />
                 </div>
                 <div className={styles.navlinkContainer}>
-                  <a title="FAQ"  href="#faq" onClick={() => NavListOpen(!navOpen)} >
+                  <Link
+                    title="FAQ"
+                    href="/#faq"
+                    onClick={() => NavListOpen(!navOpen)}
+                  >
                     FAQ
-                  </a>
-                  <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
+                  </Link>
+                  <ChevronRight
+                    style={{
+                      stroke: "#72BF82",
+                      strokeWidth: "3",
+                      width: "50px",
+                    }}
+                  />
                 </div>
-                <div className={styles.navlinkContainer} style={{ borderBottom:"3px solid #cbdbc6" }}>
-                  <a title="Kontak"  href="#kontak" onClick={() => NavListOpen(!navOpen)} >
+                {/* <div className={styles.navlinkContainer} style={{ borderBottom:"3px solid #cbdbc6" }}>
+                  <Link title="Kontak"  href="#kontak" onClick={() => NavListOpen(!navOpen)} >
                     Kontak
-                  </a>
+                  </Link>
                   <ChevronRight style={{stroke: "#72BF82", strokeWidth:"3", width:"50px"}}/>
-                </div>
+                </div> */}
               </nav>
             </div>
           </div>
