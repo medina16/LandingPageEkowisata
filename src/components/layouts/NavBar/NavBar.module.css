@@ -81,6 +81,7 @@
 
 .dropdownContent a:hover{
   background-color: rgb(193, 211, 190);
+  border-bottom: 3px solid #cbdbc6;;
 }
 
 

@@ -99,7 +99,7 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
       </div>
 
       <section>
-        <h2 style={{ marginBottom: "20px" }}>Partner Kami</h2>
+        <h2 style={{ marginBottom: "20px" }}>In Partnership With</h2>
         <div
           style={{
             display: "flex",
