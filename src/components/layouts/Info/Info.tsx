@@ -76,8 +76,17 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
           </div>
         )) || <div>Data tidak tersedia</div>}
       </section>
-
-      <h2>Desa Sejahtera Astra (DSA) Tegal-Pemalang</h2>
+      
+      <div>
+      <h2 style={{ marginBottom: "20px" }}>Desa Sejahtera Astra (DSA) Tegal-Pemalang</h2>
+      <p>
+        Wisata Tatamba dan Bale Gandrung merupakan hasil integrasi dari inovasi DSA
+        Pemalang-Tegal. Program ini mengusung sustainable ecotourism dalam
+        mendukung perekonomian Desa Guci, Tegal dan Desa Gambuhan,
+        Pemalang. 
+      </p>
+      </div>
+      
       <div className={styles.vidWrapper}>
         <iframe
           src="https://www.youtube.com/embed/wqXI5cAhERY?si=WZwT54ybYvUEWgBI"
@@ -91,7 +100,15 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
 
       <section>
         <h2 style={{ marginBottom: "20px" }}>Partner Kami</h2>
-        <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap:"wrap",     justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            alignItems: "center",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           <img src="cropped-DPMA-logo.png" style={{ height: "60px" }} />
           <img src="download.svg" style={{ height: "50px" }} />
           <img src="logo jeep tatamba - guci.png" style={{ height: "70px" }} />
