@@ -47,6 +47,11 @@
     width:100%
 }
 
+.buttonWrapper{
+    width:100%;
+    max-width:400px
+}
+
 @media only screen and (max-width:900px){
     .postInfo{
         padding: 10px 15px

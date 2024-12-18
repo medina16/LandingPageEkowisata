@@ -44,7 +44,7 @@ const PostCardTiga = ({ posts }: { posts: ArtikelBerita[] }) => {
           </Link>
         ))}
       </div>
-      <div style={{ width: "400px" }}>
+      <div className={styles.buttonWrapper}>
         <Button
           buttonlink="/posts"
           buttontext="Lihat Lebih Banyak"
