@@ -13,11 +13,15 @@ type AppShellProps = {
   children: React.ReactNode;
 };
 
-const disableNavHeader = ["/404"];
+const disableNavHeader = [""];
 
 const AppShell = (props: AppShellProps) => {
   const { children } = props;
   const { pathname } = useRouter();
+
+  if(pathname == "/server-sitemap.xml"){
+    return
+  }
 
   return (
     <div className={rubik_init.variable}>
@@ -25,7 +29,7 @@ const AppShell = (props: AppShellProps) => {
         <div className="rubik">
           <NavBar />
           
-          <MedSos />
+          {pathname == "/" ? <MedSos showmedsos={true}/> : <MedSos showmedsos={false}/>}
         </div>
       )}
       <main style={{ marginTop:"46px" }}>{children}</main>

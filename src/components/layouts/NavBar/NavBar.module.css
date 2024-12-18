@@ -16,7 +16,9 @@
   /* border-bottom: 3px solid #dee9db; */
 }
 
-
+.NavBar svg{
+  flex-shrink: 0;
+}
 
 .NavBar a {
   color: #ffffff;
@@ -43,7 +45,9 @@
 }
 
 .NavBar h1 {
-  font-size: 24px;
+  display:flex;
+  gap: 5px;
+  font-size: 26px;
   letter-spacing: 1px;
 }
 
@@ -85,7 +89,7 @@
 }
 
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:846px) {
 
   .NavBar a:hover {
     scale: 103%
@@ -104,10 +108,10 @@
     display: none;
   }
 
-  .NavBar h1 {
+  /* .NavBar h1 {
     font-size: 20px;
     letter-spacing: 1px;
-  }
+  } */
 
   .NavBar {
     padding: 0 30px;
@@ -174,4 +178,14 @@
   }
 
 
+}
+
+
+@media only screen and (max-width:542px) {
+  .NavBar h1 {
+    font-size: 17px;
+  flex-direction: column;
+  gap:0;
+  line-height: 15px;
+  }
 }

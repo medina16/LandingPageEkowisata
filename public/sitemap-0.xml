@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>http://localhost:3000</loc><lastmod>2024-12-18T05:44:07.079Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/about</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/lululululu-2024-11-29</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/tes-2024-11-08</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/lalaala-2024-11-03</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/dpma-ipb-kenalkan-pentingnya-edukasi-lingkungan-hidup-ke-siswa-sdn-03-gambuhan-di-wana-wisata-bale-gandrung-2024-11-05</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/halo-gais-jadi-ini-ceritanya-nulis-judul-artikelnya-panjnag-biar-bisa-liat-contohnya-gimana-2024-12-04</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/direktorat-pengembangan-masyarakat-agromaritim-ipb-dpma-ipb-kenalkan-pentingnya-edukasi-lingkungan-hidup-ke-siswa-sdn-03-gambuhan-di-wana-wisata-bale-gandrung-2024-11-05</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/posts/kegiatan-penanaman-pohon-di-jalur-susur-hutan-jeep-tatamba-oleh-penjabat-bupati-kabupaten-tegal-2024-10-05</loc><lastmod>2024-12-18T05:44:07.082Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>

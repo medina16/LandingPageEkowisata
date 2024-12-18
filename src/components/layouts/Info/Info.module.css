@@ -1,3 +1,7 @@
+.Info h2{
+    text-align: center;
+}
+
 .img {
     object-fit: cover;
 

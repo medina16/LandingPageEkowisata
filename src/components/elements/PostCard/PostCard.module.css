@@ -8,38 +8,53 @@
 
 .imgContainer {
     position: relative;
-    width: 100%;
+    width: 50%;
     /* Full width */
-    height: 250px;
-
+    height: 100%;
+    flex: 1;
     /* Adjust based on desired aspect ratio */
     background-color: #72BF82;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px 0 0 15px;
 }
 
 .postInfo {
     padding: 20px 20px;
     display: flex;
     flex-direction: column;
+    flex: 2; 
 }
 
 .PostCard {
-    width: calc(50% - 10px);
+    /* width: calc(50% - 10px); */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 .PostCard img {
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px 0 0 15px;
 }
 
 .PostCard:hover {
     transform: scale(102%);
 }
 
-@media only screen and (max-width:550px){
+@media only screen and (max-width:762px){
     .PostCard {
-        width: 100%;
+        flex-direction: column;
+    }
+    .imgContainer {
+        width: 100%; /* Full width for column layout */
+        padding-top: 56.25%; /* Maintain aspect ratio */
+        border-radius: 15px 15px 0 0;
+    }
+    .PostCard img{
+        border-radius: 15px 15px 0 0;
+    }
+}
+
+@media only screen and (max-width:540px) {
+    .ikhtisar{
+        display:none
     }
 }

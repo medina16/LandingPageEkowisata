@@ -8,7 +8,7 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
     <div className={styles.Info}>
       <h2>Tentang Kami</h2>
 
-      <section>
+      
         {infos?.map((item, index) => (
           <div key={index} className={styles.wrapper}>
             {/* <a style={{ fontWeight:"500", display: "flex", gap: "5px", alignItems: "center" }}>
@@ -75,7 +75,7 @@ const Info = ({ infos }: { infos: InfoWisata[] }) => {
             </div>
           </div>
         )) || <div>Data tidak tersedia</div>}
-      </section>
+      
       
       <div>
       <h2 style={{ marginBottom: "20px" }}>Desa Sejahtera Astra (DSA) Tegal-Pemalang</h2>

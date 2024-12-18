@@ -4,8 +4,8 @@ const Custom404 = () => {
     return(
         <div className="not-found rubik">
             <div className="wrapper">
-                <p style={{ fontSize: "42px", lineHeight:"40px", fontWeight:"600" }}>Halaman tidak ditemukan.</p>
-                <div style={{ width:"400px" }}>
+                <p style={{ fontSize: "35px", lineHeight:"40px", fontWeight:"600", padding:"0 20px"}}>Halaman tidak ditemukan.</p>
+                <div style={{  }}>
                 <Button buttontype="primary" buttontext="Kembali ke halaman utama" buttonlink="/" icon=""/>
                 </div>
                 

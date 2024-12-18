@@ -1,0 +1,105 @@
+.container {
+    padding: 0 2rem;
+}
+
+.pagination {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 10px
+        /* background-color: #72BF82;
+    padding: 5px 9px;
+    border-radius: 30px; */
+}
+
+
+
+.pagination a {
+    color: inherit
+}
+
+.pageLink {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* pagination pageItem */
+.pageItem {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+}
+
+.pageItem:hover {
+    color: #F9F9F2;
+    background-color: #72BF82;
+}
+
+/* pagination page item when active */
+.pageItemActive {
+    font-size: 16px;
+    color: #F9F9F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #354C3F;
+}
+
+.nextprev {
+    background-color: #72BF82;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+    color: #F9F9F2;
+}
+
+.nextprev:hover {
+    background-color: transparent;
+    transition: 0.5s;
+    color: #72BF82;
+    box-shadow: 0px 0px 0px 4px #72BF82 inset;
+}
+
+.nextprevmax {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    border: none;
+
+
+    background-color: transparent;
+
+    color: #72BF82;
+    box-shadow: 0px 0px 0px 4px #72BF82 inset;
+}
+
+
+@media only screen and (max-width:374px) {
+    .pagination {
+        gap: 3px
+    }
+}

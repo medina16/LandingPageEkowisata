@@ -46,3 +46,27 @@
     text-overflow: ellipsis;
     width:100%
 }
+
+@media only screen and (max-width:900px){
+    .postInfo{
+        padding: 10px 15px
+    }
+    .postInfo span{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width:720px){
+    .cardWrapper{
+        flex-direction: column;
+    }
+    .postCard{
+        width: 100%;
+    }
+    .imgContainer{
+        height: 200px;
+    }
+    .postInfo{
+        
+    }
+}
